@@ -1,0 +1,500 @@
+/* Importing fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+/* Defining variables for fonts and colors */
+:root{
+    --suez-one: 'Suez One', serif;
+    --roboto:  'Roboto', sans-serif;
+     /* General colors */
+    --dark-cyan: rgb(18, 68, 73);
+    --greyish-green: rgb(88, 139, 139);
+    --light-yellow: rgb(255, 249, 235);
+    --coral-red: rgb(255, 90, 95);
+    --firetruck-red: rgb(200, 29, 37);
+    --box-white: rgba(255, 255, 255, 0.9);
+    --shadow-black: rgba(0,0,0,0.2);
+    --shadow-white: rgba(255,255,255,0.2);
+}
+*{
+    scroll-behavior: smooth !important;
+}
+ /* Resetting body and html styles */
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+ /* Setting default styles for html */
+html{
+    background-color: var(--light-yellow);
+    font-family: var(--roboto);
+    line-height: normal;
+    font-size: 16px;
+}
+ /* Setting styles for heading tags */
+h1, h2{
+    font-family: var(--suez-one);
+    font-weight: 400;
+}
+ h1{
+    font-size: 80px;
+    line-height: 80px;
+}
+ h2{
+    font-size: 40px;
+    line-height: 40px;
+}
+ h3{
+    font-weight: 400;
+    font-size: 24px;
+}
+
+h4{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h1,h2,h3,h4,h5,h6,p,b{
+  color: var(--dark-cyan);
+}
+ /* Removing bullet points from unordered lists */
+ul{
+    list-style-type: none;
+}
+ /* Removing underline from hyperlinks */
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar-container {
+    position: fixed;
+    top: 0;
+    right: 4vw;
+    width: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0px 4px 8px var(--shadow-white), 0 6px 20px 0 var(--shadow-black);
+}
+
+ .navbar-item {
+    padding: 20px;
+    border-radius: 0;
+}
+
+
+
+.navbar-item:hover {
+    color: white;
+    background-color: var(--firetruck-red);
+    transition: 0.5s ease;
+}
+
+ /* Changing cursor to pointer on hover over divs and navigation items */
+div:hover, .navbar-item:hover{
+    cursor: pointer;
+}
+
+ /* Changing cursor to text on hover over text elements */
+b, h1, h2, h3, h4, h5, h6, p:hover{
+    cursor: text;
+}
+ /* Styling the first and last navigation items */
+.navbar-item:first-of-type{
+    border-radius: 0 0 0 15px;
+}
+ .navbar-item:last-of-type{
+    border-radius: 0 0 15px 0;
+}
+ /* Positioning the welcome section */
+.welcome{
+    color: var(--dark-cyan);
+    margin: 50px;
+    position: relative;
+    top: 200px;
+}
+ /* Center aligning text */
+.center-text{
+    text-align: center;
+}
+ 
+ /* Styling the subtext */
+.subtext{
+    color: #3d3d3d;
+    line-height: 10px;
+    font-size: 10px;
+}
+ /* Styling the contact container */
+.contact-container{
+    box-shadow: 0px 4px 8px var(--shadow-white), 0 6px 20px 0 var(--shadow-black);
+    width: 250px;
+    padding: 15px 30px;
+    position: absolute;
+    top: 150px;
+    right: 12vw;
+    display: flex;
+    background-color: var(--box-white);
+    border-radius: 20px;
+    height: 500px;
+}
+ /* Styling the contact section */
+.contact{
+    position: absolute;
+    display: block;    
+    line-height: 25px;
+}
+ /* Positioning the contact text */
+.contact-text{
+    display: block;
+    position: absolute;
+    top: 10px;
+    line-height: 10px;
+}
+ /* Styling the input fields */
+input{
+    padding: 0px 5px;
+    box-sizing: border-box;
+}
+ /* Styling the first name, last name, and email fields */
+#fname, #lname, #email {
+    border: 1px solid gray;
+    border-radius: 7px;
+    width: 115px;
+    height: 30px;
+}
+ /* Styling the message field */
+#msg{
+    width: 240px;
+}
+ /* Positioning the first name, last name, and email fields */
+.fn{
+    top: 100px;
+}
+ .ln{
+    top: 100px;
+    left: 160px;
+}
+ .email{
+    top: 180px;
+}
+ /* Positioning the message field */
+.msg{
+    top: 270px;
+}
+ /* Styling the submit button */
+.submit{
+    position: absolute;
+    top: 430px;
+    width: 210px;
+    height: 30px;
+    background-color: black;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+ /* Styling the submit input field */
+input[type=submit]{
+    border: none;
+    background-color: inherit;
+    color: white;
+}
+ /* Changing the background color of the submit button on hover */
+.submit:hover{
+    cursor: pointer;
+    background-color: var(--coral-red);
+    transition: 0.5s;
+}
+ /* Positioning the name tag */
+.nametag{
+    left: 4vw;
+    top: 0;
+    display: flex;
+}
+ /* Styling the name */
+.name{
+    box-shadow: 0px 4px 8px var(--shadow-white), 0 6px 20px 0 var(--shadow-black);
+    color: white;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--firetruck-red);
+    padding: 20px;
+    border: 0;
+    margin: 0;
+    display:block;
+}
+ /* Styling the image container */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 22vw;
+  height: 30vw;
+  border-radius: 20px;
+}
+
+
+ /* Styling the image and gradient filter in the image container */
+.image-container img, .gradient-filter {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 2s ease;
+  object-fit: cover;
+}
+ /* Adding a gradient filter to the image container */
+.gradient-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(200, 29, 37, 0.8));
+  transition: opacity 0.5s ease;
+}
+ /* Scaling the image and changing the opacity of the gradient filter on hover */
+.image-container:hover .gradient-filter{
+   opacity: 0; 
+} 
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+ /* Styling the element that hides on scroll */
+.hideonscroll {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    transition: top 0.3s ease;
+}
+
+ /* Positioning the text at the bottom */
+.text-bottom {
+    color: white;
+    margin: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+}
+ /* Styling the bold text */
+.bold{
+    font-weight: 500;
+    font-size: 20px;
+    bottom: 40px;
+}
+ /* Styling the flex container */
+.flex-container {
+    position: relative;
+    top: 200px;
+    left: 0;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+    align-items: center;
+}
+ /* Styling the background image */
+ .background-image {
+  position: absolute;
+  top: 0;
+  background-image: url("./images/top.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 700px;
+  width: 100vw;
+}
+
+
+
+.zoom {
+    font-weight: 500;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s ease;
+}
+
+.image-container:hover .zoom {
+    font-size: 23px;
+}
+
+footer {
+    display: block;
+    position: relative;
+    top: 4000px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+
+  }
+  
+  .column {
+    flex-basis: 30%;
+  }
+  
+  .column h4 {
+    margin-bottom: 0px;
+  }
+  
+  .column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .column li {
+    margin-bottom: 5px;
+  }
+
+  .cpr{
+    color: var(--dark-cyan)
+  }
+
+  .get-in-touch > h2{
+    color: white;
+    position: absolute;
+    right: 12vw;
+    top: 20px;
+  }
+
+  .get-in-touch {
+    position: relative;
+    top: 700px;
+    width: 100%;
+    height: 800px; /* Adjust the height as per your requirements */
+    background-image: url(./images/first.png), url(./images/second.png);
+    background-position: top, bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+  }
+
+  .about-me {
+    position: relative;
+    top: 300px;
+    text-align: center;
+  }
+  
+
+  .edu-container {
+    margin-left: 250px;
+    margin-right: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
+  .edu-card {
+    box-shadow: 0px 4px 8px var(--shadow-white), 0 6px 20px 0 var(--shadow-black);
+    width: 250px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--box-white);
+    margin-bottom: 50px;
+  }
+  .edu-card:nth-child(3n) {
+    margin-right: 0;
+  }
+  .edu-card img {
+    width: 60px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  .edu-card .edu-content {
+    float: left;
+  }
+  .edu-card h3,
+  .edu-card i {
+    margin: 0;
+    line-height: 20px;
+    color: var(--dark-cyan);
+  }
+  .edu-card h4{
+    font-size: 13px;
+  }
+  .edu-card h3{
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .edu-card h4{
+    font-weight: 400;
+  }
+
+.edu-card i{
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.edu-card .description {
+    text-align: left;
+    width: 100%;
+    left: 0;
+  }
+
+  .edu-box{
+    position: relative;
+    top: 100px;
+  }
+
+  .language h2{
+    font-size: 30px;
+    color: var(--dark-cyan);
+  }
+
+  .logo{
+    font-size: 50px;
+    padding: 20px;
+    color: rgba(9, 49, 72, 0.5);
+  }
+ 
+  .sm{
+    font-size: 20px;
+    font-weight: 300;
+    padding: 15px;
+    color: var(--box-white);
+  }
+
+  .social-container{
+    box-shadow: 0px 2px 4px rgba(200,29,37,0.8), 0 6px 20px 0 var(--shadow-black);
+    width: 250px;
+    padding: 15px 30px;
+    position: absolute;
+    top: 350px;
+    left: 12vw;
+    display: flex;
+    background-color: rgba(200,29,37,0.95);
+    border-radius: 20px;
+    height: 150px;
+}
+
+
+.social-media{
+  position: absolute;
+  top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.white{
+  color:white;
+}
+
+

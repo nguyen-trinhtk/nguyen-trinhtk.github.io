@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My portfolio</title>
+    <script src="https://kit.fontawesome.com/ea5c9256b2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="background-image">
+        <div class="navbar-container hideonscroll">
+            <div class="navbar-item">Home</div>
+            <div class="navbar-item"><a href="#about">About</a></div>
+            <div class="navbar-item"><a href="#projects">Projects</a></div>
+            <div class="navbar-item"><a href="#contact">Contact</a></div>
+        </div>
+
+        <div class="nametag hideonscroll">
+            <p class="name hideonscroll">Y/N</p>
+        </div>
+        <div class="welcome">
+            <h1>Welcome to my portfolio</h1>
+            <h3>Type a stt here</h3>
+        </div> 
+
+        <div class="flex-container">
+            <a href="#about">
+            <div class="image-container">
+                <img src="./images/ABOUT.png" alt="Your Image">
+                <div class="gradient-filter">
+                    <b class="bold text-bottom">About</b>
+                    <p class="normal text-bottom">Education, experience and achievement</p>
+                </div>
+            </div>
+            </a>
+            <div class="image-container">
+                <a href="#projects">
+                <img src="./images/PROJECTS.png" alt="Your Image">
+                <div class="gradient-filter">
+                    <b class="bold text-bottom">Projects</b>
+                    <p class="normal text-bottom">Past and current projects</p>
+                </div>
+                </a>
+            </div>
+            <div class="image-container">
+                <a href="#contact">
+                <img src="./images/CONTACT.png" alt="Your Image">
+                <div class="gradient-filter">
+                    <b class="bold text-bottom">Contact</b>
+                    <p class="normal text-bottom">Get in touch with me via social media</p>
+                </div>
+                </a>
+            </div>
+            <div class="image-container">
+                <img src="./images/more.png" alt="Your Image">
+                <div class="zoom">
+                    <p>Explore more↓</p>
+                </div>
+                <div class="gradient-filter">
+                </div>
+            </div>
+        </div>
+
+        <section class="about-me" id="about">
+            <h2 class="title">About Me</h2>
+            <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+            <div class="edu-container">
+                <div class="edu-card">
+                  <img src="./images/vnuhcm.png" alt="Image">
+                  <div class="edu-content">
+                    <h3>Education</h3>
+                    <h4>VNU-HCM HS for the Gifted</h4>
+                    <i>2021 - 2024</i>
+                  </div>
+                  <p class="description">Math specialized student</p>
+                </div>
+                <!-- Repeat the above .edu-card div 2 more times for the first row -->
+
+                  <div class="edu-card">
+                    <img src="./images/wro.png" alt="Image">
+                    <div class="edu-content">
+                      <h3>Achievement</h3>
+                      <h4>World Robot Olympiad 2022</h4>
+                      <i>2022</i>
+                    </div>
+                    <p class="description">National Runner-up</p>
+                    <p class="description">International Bronze Award (#23)</p>
+                  </div>
+            </div>
+
+            <div class="edu-container">
+                <div class="edu-card">
+                  <img src="./images/fuv.png" alt="Image">
+                  <div class="edu-content">
+                    <h3>Experience</h3>
+                    <h4>Fulbright University Vietnam</h4>
+                    <i>2023</i></div>
+                    <p class="description">PTNK Innovation Initiative (PII) Intern at Makerpsace, Fulbright University Vietnam</p>
+                  
+                </div>
+                <!-- Repeat the above .edu-card div 2 more times for the first row -->
+
+                  <div class="edu-card">
+                    <img src="./images/gglcsr.png" alt="Image">
+                    <div class="edu-content">
+                      <h3>Certification</h3>
+                      <h4>Title</h4>
+                      <i>2023</i>
+                      <p class="description">Your description here</p>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="language">
+                <h2>My languages and tools</h2>
+                <i class="fa-brands fa-python logo"></i>
+                <i class="fa-brands fa-java logo"></i>
+                <i class="fab fa-cuttlefish logo">++</i>
+                <i class="fa-brands fa-html5 logo"></i>
+                <i class="fa-brands fa-css3-alt logo"></i>
+                <i class="fa-brands fa-js logo"></i>
+
+            </div>
+                   
+        </section>
+        <div class="swiper-container">
+          </div>
+        <section class="projects" id="projects">
+
+        </section>
+        <section class="get-in-touch" id="contact">
+            <h2 class="git-text">Connect with me directly</h2>
+            <div class="contact-container">
+                <div class="contact-text">
+                    <h3><b>Get in Touch</b></h3>
+                    <p>This is a sample Lorem Ipsum.</p>
+                </div>
+                <form>
+                    <div class="contact fn">
+                        <label for="fname">First name *</label><br>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+                    <div class="contact ln">
+                        <label for="lname">Last name *</label><br>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+                    <div class="contact email">
+                        <label for="email">Email *</label><br>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="contact msg">
+                        <label for="msg">Leave me a message</label><br>
+                        <textarea id="msg" name="msg" style="height:100px; border-radius: 10px;"></textarea>
+                    </div>
+                    <div class="contact submit">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+            <div class="social-container">
+                <div class="contact-text">
+                    <h3><b class="white">Or connect with me via</b></h3>
+                </div>
+                <div class="social-media">
+                <a href="mailto:khanhnguyentrinhthi@gmail.com"><i class="sm fa-brands fa-sharp fa-solid fa-envelope-open"></i></a>
+                <a href="https://www.facebook.com/nicky.humphreys.549/"><i class="sm fa-brands fa-facebook"></i></a>
+                <a href="https://github.com/nguyen-trinhtk"><i class="sm fa-brands fa-github"></i></a>
+                <a href="https://discordapp.com/users/nerdyblockhead#9725"><i class="sm fa-brands fa-discord"></i></a>
+                <a href="https://www.instagram.com/daehkcolbydren/"><i class="sm fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+    
+    </div>
+    <footer>
+        <hr>
+        <div class="footer-content">
+            <div class="column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:khanhnguyentrinhthi@gmail.com">student210134@ptnk.edu.vn</a></li>
+                    <li>Tel: (+84) 938-504-259</li>
+                    <li>Ho Chi Minh City, Vietnam</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="discordapp.com/users/nerdyblockhead#9725">Discord</a></li>
+                    <li><a href="https://github.com/nguyen-trinhtk">Github</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="center-text cpr">© 2023 by Y/N. Do not use any element without permission.</p>
+    </footer>  
+
+    <script src="script.js"></script>
+</body>
+</html>
