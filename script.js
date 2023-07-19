@@ -18,3 +18,46 @@ window.addEventListener('DOMContentLoaded', function() {
   hideonscroll.classList.add('visible');
 });
 
+const swiperContainer = document.querySelector('.swiper-container');
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+const slides = document.querySelectorAll('.swiper-slide');
+const prevButton = document.querySelector('.swiper-button-prev');
+const nextButton = document.querySelector('.swiper-button-next');
+
+let currentIndex = 0;
+updateButtons();
+
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlidePosition();
+    updateButtons();
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++;
+    updateSlidePosition();
+    updateButtons();
+  }
+});
+
+function updateSlidePosition() {
+  const slideWidth = slides[0].offsetWidth;
+  swiperWrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+}
+
+function updateButtons() {
+  if (currentIndex === 0) {
+    prevButton.classList.add('fade');
+  } else {
+    prevButton.classList.remove('fade');
+  }
+
+  if (currentIndex === slides.length - 1) {
+    nextButton.classList.add('fade');
+  } else {
+    nextButton.classList.remove('fade');
+  }
+}
