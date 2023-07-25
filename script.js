@@ -96,3 +96,6 @@ document.querySelector('form').addEventListener('submit', function(event) {
       console.error(error);
   });
 });
+
+// After form submission
+window.location.href = 'https://nguyen-trinhtk.github.io';
