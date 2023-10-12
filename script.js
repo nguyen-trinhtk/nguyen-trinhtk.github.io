@@ -62,40 +62,40 @@ function updateButtons() {
   }
 }
 
-document.querySelector('form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form submission
-   // Get form values
-  var firstName = document.getElementById('fname').value;
-  var lastName = document.getElementById('lname').value;
-  var email = document.getElementById('email').value;
-  var message = document.getElementById('msg').value;
-   // Create an object to store the form data
-  var formData = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      message: message
-  };
-   // Convert form data to JSON
-  var jsonData = JSON.stringify(formData);
-   // Send the JSON data to your server using AJAX or fetch API
-  // Example using fetch API:
-  fetch('http://127.0.0.1:5000', {
-      method: 'POST',
-      body: jsonData,
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  })
-  .then(function(response) {
-      // Handle the response from the server
-      console.log(response);
-  })
-  .catch(function(error) {
-      // Handle any errors
-      console.error(error);
-  });
-});
+// document.querySelector('form').addEventListener('submit', function(event) {
+//   event.preventDefault(); // Prevent form submission
+//    // Get form values
+//   var firstName = document.getElementById('fname').value;
+//   var lastName = document.getElementById('lname').value;
+//   var email = document.getElementById('email').value;
+//   var message = document.getElementById('msg').value;
+//    // Create an object to store the form data
+//   var formData = {
+//       firstName: firstName,
+//       lastName: lastName,
+//       email: email,
+//       message: message
+//   };
+//    // Convert form data to JSON
+//   var jsonData = JSON.stringify(formData);
+//    // Send the JSON data to your server using AJAX or fetch API
+//   // Example using fetch API:
+//   fetch('http://127.0.0.1:5000', {
+//       method: 'POST',
+//       body: jsonData,
+//       headers: {
+//           'Content-Type': 'application/json'
+//       }
+//   })
+//   .then(function(response) {
+//       // Handle the response from the server
+//       console.log(response);
+//   })
+//   .catch(function(error) {
+//       // Handle any errors
+//       console.error(error);
+//   });
+// });
 
-// After form submission
-window.location.href = 'https://nguyen-trinhtk.github.io';
+// // After form submission
+// window.location.href = 'https://nguyen-trinhtk.github.io';

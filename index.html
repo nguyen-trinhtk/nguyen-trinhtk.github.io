@@ -8,20 +8,19 @@
     <script src="https://kit.fontawesome.com/ea5c9256b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="background-image">
+    <div class="background-image" id="home">
         <div class="navbar-container hideonscroll">
-            <div class="navbar-item">Home</div>
+            <div class="navbar-item"><a href="#home">Home</a></div>
             <div class="navbar-item"><a href="#about">About</a></div>
             <div class="navbar-item"><a href="#projects">Projects</a></div>
             <div class="navbar-item"><a href="#contact">Contact</a></div>
         </div>
 
         <div class="nametag hideonscroll">
-            <p class="name hideonscroll">Y/N</p>
+            <p class="name hideonscroll">KHANH NGUYEN</p>
         </div>
         <div class="welcome">
             <h1>Welcome to my portfolio</h1>
-            <h3>Type a stt here</h3>
         </div> 
 
         <div class="flex-container">
@@ -29,8 +28,8 @@
             <div class="image-container">
                 <img src="./images/ABOUT.png" alt="Your Image">
                 <div class="gradient-filter">
-                    <b class="bold text-bottom">About</b>
-                    <p class="normal text-bottom">Education, experience and achievement</p>
+                    <b class="bold text-bottom card-text">About</b>
+                    <p class="normal text-bottom hideonsmall card-text">Something about me</p>
                 </div>
             </div>
             </a>
@@ -38,8 +37,8 @@
                 <a href="#projects">
                 <img src="./images/PROJECTS.png" alt="Your Image">
                 <div class="gradient-filter">
-                    <b class="bold text-bottom">Projects</b>
-                    <p class="normal text-bottom">Past and current projects</p>
+                    <b class="bold text-bottom card-text">Projects</b>
+                    <p class="normal text-bottom hideonsmall card-text">Past and current projects</p>
                 </div>
                 </a>
             </div>
@@ -47,18 +46,20 @@
                 <a href="#contact">
                 <img src="./images/CONTACT.png" alt="Your Image">
                 <div class="gradient-filter">
-                    <b class="bold text-bottom">Contact</b>
-                    <p class="normal text-bottom">Get in touch with me via social media</p>
+                    <b class="bold text-bottom card-text">Contact</b>
+                    <p class="normal text-bottom hideonsmall card-text">Get in touch with me</p>
                 </div>
                 </a>
             </div>
             <div class="image-container">
+                <a href="#home">
                 <img src="./images/more.png" alt="Your Image">
                 <div class="zoom">
                     <p>Explore more↓</p>
                 </div>
                 <div class="gradient-filter">
-                </div>
+                </div>'
+                </a>
             </div>
         </div>
 
@@ -124,13 +125,18 @@
         </section> -->
         
         <section class="projects" id="projects">
+            <h2 style="text-align: center; font-size: 60px;">Projects</h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="images/top.png" alt="">
                         <div class="overlay">
                             <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
+                                <h2 class="white">World Robot Olympiad 2022</h2>
+                                <i class="white">May 2022 - November 2022</i>
+                                <p class="white"><b class="white">Description: </b>Assembling and programming a robot for the WRO 2022 Season</p>
+                                <p class="white hideonsmall">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                                <p class="white">View on <a href="https://github.com/nguyen-trinhtk" style="text-decoration: underline; color:rgb(255, 255, 163);">GitHub</a></p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +145,53 @@
                         <img src="images/top.png" alt="">
                         <div class="overlay">
                             <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
+                                <h2 class="white">SOUD N'SING - Karaoke App for the Elderly</h2>
+                                <i class="white">May 2023 - Present</i>
+                                <p class="white"><b class="white">Description: </b>Create a software interface and pitch-detection device for a karaoke app designed to enhance older people's mental health.</p>
+                                <p class="white hideonsmall">Application's frontend is designed and prototyped with Figma and React Native. Recording device comprises of an Arduino Nano and a Sound Sensor, programmed with Arduino IDE (C/C++ Syntax) and the built-in FFT library.</p>
+                                <p class="white">View on <a href="https://github.com/nguyen-trinhtk" style="text-decoration: underline; color:rgb(255, 255, 163);">GitHub</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+    	            <div class="swiper-slide">
+                        <img src="images/top.png" alt="">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2 class="white">Autonomous Trash-collecting Robot</h2>
+                                <i class="white">June 2023 - September 2023</i>
+                                <p class="white"><b class="white">Description: </b>Deployed a robot capable of navigating, bottle-detecting and obstacle avoiding for the PII program.</p>
+                                <p class="white hideonsmall">Designed and assembled robot's base. Establish circuit system between motor and Arduino Uno. Integrated Lidar and Camera sensor. Trained AI model to improve detection efficiency.</p>
+                                <p class="white hideonsmall">Tools used: Fusion 360, Arduino, OpenCV, YOLO, ImageAI, RPLidar, ROS, Jetson Nano's Ubuntu, multi-threading, serial communication.</p>
+                                <p class="white">View on <a href="https://github.com/nguyen-trinhtk" style="text-decoration: underline; color:rgb(255, 255, 163);">GitHub</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <img src="images/top.png" alt="">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2 class="white">PAL - Palette Generator for Color Deficiencies</h2>
+                                <i class="white">July 2023 - Present</i>
+                                <p class="white"><b class="white">Description: </b>Suggest palettes according to a color or photo. Exemplify different color deficiencies' perception.</p>
+                                <p class="white hideonsmall">Programmed and prototyped with React Native and Django Framework. Implemented color theory, interchangable color scales (RGB, RYB, HSL, HEX), and K-mean clustering. Used API and JSON to host and store data. </p>
+                                <p class="white">View on <a href="https://github.com/nguyen-trinhtk" style="text-decoration: underline; color:rgb(255, 255, 163);">GitHub</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="swiper-slide">
+                        <img src="images/top.png" alt="">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h2 class="white">MR. DISCIPLINE - Student Assistant Discord Bot</h2>
+                                <i class="white">August 2023 - October 2023</i>
+                                <p class="white"><b class="white">Description: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+                                <p class="white hideonsmall">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                                <p class="white">View on <a href="https://github.com/nguyen-trinhtk" style="text-decoration: underline; color:rgb(255, 255, 163);">GitHub</a></p>
                             </div>
                         </div>
                     </div>
@@ -148,43 +200,11 @@
                         <img src="images/top.png" alt="">
                         <div class="overlay">
                             <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="images/top.png" alt="">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="images/top.png" alt="">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="images/top.png" alt="">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="images/top.png" alt="">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                Slide in <span>from the bottom</span>
+                                <h2 class="white">EUPHONITER - Music Theory Blog</h2>
+                                <i class="white">January 2023 - Present</i>
+                                <p class="white"><b class="white">Description: </b>Build personal blog's website with HTML, CSS and JavaScript.</p>
+                                <p class="white hideonsmall">Designed and structured website's outline with HTML and CSS. Added screen-responsive elements. Implemented sorting and form-collecting algorithms.</p>
+                                <p class="white">View on <a href="https://github.com/nguyen-trinhtk" style="text-decoration: underline; color:rgb(255, 255, 163);">GitHub</a></p>
                             </div>
                         </div>
                     </div>
@@ -229,7 +249,7 @@
                 </div>
                 <div class="social-media">
                 <a href="mailto:khanhnguyentrinhthi@gmail.com"><i class="sm fa-brands fa-sharp fa-solid fa-envelope-open"></i></a>
-                <a href="https://www.facebook.com/nicky.humphreys.549/"><i class="sm fa-brands fa-facebook"></i></a>
+                <a href="https://www.facebook.com/Jz0h174/"><i class="sm fa-brands fa-facebook"></i></a>
                 <a href="https://github.com/nguyen-trinhtk"><i class="sm fa-brands fa-github"></i></a>
                 <a href="https://discordapp.com/users/nerdyblockhead#9725"><i class="sm fa-brands fa-discord"></i></a>
                 <a href="https://www.instagram.com/daehkcolbydren/"><i class="sm fa-brands fa-instagram"></i></a>
@@ -267,7 +287,7 @@
             </div>
         </div>
         <hr>
-        <p class="center-text cpr">© 2023 by Y/N. Do not use any element without permission.</p>
+        <p class="center-text cpr">© 2023 by KHANH NGUYEN. Do not use any element without permission.</p>
     </footer>  
 
     <script src="script.js"></script>
