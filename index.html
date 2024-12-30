@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyen Trinh</title>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.jpeg">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
-</head>
-<body>
-     <div class="midleft">
-        <h1>hi, I am Nguyen!</h1>
-        <div class="typing">
-            <b class="blue">~</b>$<span class="typing-term">cd about.txt</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nguyen Trinh</title>
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.jpeg">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <p>Nguyen Trinh</p>
+        <h1>hi, I am Nguyen</h1>
+        <p>this is another little description of me</p>
+        <!-- <div class="typing"> -->
+        <b class="blue">~</b>$<span id="cmd"></span>
+        <!-- </div> -->
+        <p id="content"></p>
+        <div id="linkDiv">
         </div>
         <div class="btn-container">
-            <button onclick="" class="func-btn">about me</button>
-            <button onclick="" class="func-btn">experience</button>
-            <button onclick="" class="func-btn">my projects</button>
-            <button onclick="" class="func-btn">contact me</button>
+            <button onclick="btnClick('about')" class="func-btn">about me</button>
+            <button onclick="btnClick('experience')" class="func-btn">experience</button>
+            <button onclick="btnClick('projects')" class="func-btn">my projects</button>
+            <button onclick="btnClick('contact')" class="func-btn">contact</button>
         </div>
-     </div>
-</body>
+    </body>
 </html>

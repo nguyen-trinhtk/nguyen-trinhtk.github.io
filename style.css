@@ -11,14 +11,18 @@
     --background-color: #fffff7;
     --regular-family: "Space Mono", monospace;
     --heading-family: "Lekton", monospace;
-    --font-size: 16px;
-    --padding: 10px;
-    --margin: 10px;
+    --font-size: 16px; /* media queries */
 }
 
 body{
     background-color: var(--background-color);
-    font-family: var(--regular-family)
+    font-family: var(--regular-family);
+    text-align: left;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 30vh;
+    position: absolute;
+
 }
 
 h1, h2, h3, h4 {
@@ -37,128 +41,40 @@ p, span {
 }
 
 .green {
-    color: var(--accent-green)
+    color: var(--accent-green);
 }
 
-.midright {
-    text-align: left;
-    margin-left: 50vw;
-    margin-top: 37.5vh;
-}
-
-.midleft {
-    text-align: left;
-    margin-left: 10vw;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.page-btn {
+.func-btn {
+    font-family: var(--heading-family);
     font-size: 0.9rem;
-    color: var(--accent-blue);
     font-weight: 700;
+    color: var(--accent-blue);
     text-decoration: none;
     padding: 0.25rem 0.5rem;
-    margin-right: 0.5rem;
+    margin: 1rem;
+    margin-left: 0;
     border-radius: 0.5rem;
     background-color: #e5e5e5;
+    border: none;
 }
 
-
-
-.page-btn:hover {
+.func-btn:hover {
     text-decoration: underline;
     text-underline-offset: 0.05rem;
     color: white;
     background-color: var(--background-blue);
 }
 
-#text {
-    display: inline;
-}
-
-#blink {
-    display: inline;
-}
-
-.blink-text{
-    display: flex;
-    margin-bottom: 0.75rem;
-    margin-top: -1.25rem;
-}
-
-.typing-term {
-    display: inline-block;
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    white-space: nowrap;;
-    margin-left: 1rem;
-    border-right: 1rem solid rgb(125,125,125); /* The typwriter cursor */    letter-spacing: .15rem; /* Adjust as needed */
-    animation: 
-    typing 1s steps(15, end) forwards,
-    blink-caret .75s step-end 1,
-    caret-fade-out 0s linear 1s forwards
-}
-  
-.typing {
-    margin: 1.5rem 0;
-    display: flex;
-}
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgb(125, 125, 125); }
-  }
-
-  @keyframes caret-fade-out {
-    from { border-color: rgb(125, 125, 125); }
-    to { border-color: transparent; }
-}
-
-  .content-text > * {
-    visibility: hidden; /* Start invisible */
-    display: block;
-    width: 90vw;
-    opacity: 0; /* Fully transparent */
-    overflow: hidden; /* Prevent content from showing until typed */
-    white-space: nowrap; /* Keep the text in a single line */
-    border-right: 1rem solid rgb(125, 125, 125); /* The typewriter cursor */
-    letter-spacing: 0.15rem; /* Adjust spacing between letters */
-    animation: fadeIn 0s linear 1.25s forwards, 
-               typing 0.1s steps(10, end) 1.25s forwards, 
-               blink-caret 0.75s step-end infinite 2s,
-               hide-caret 0s linear 1.5s forwards;
-
-    margin-bottom: 1rem;
-  }
-
- a {
-    text-decoration: none;
+a.link { 
+    color: var(--accent-green);
+    font-weight: 700;
     font-family: var(--regular-family);
-  }
-
-  /* Fade-in effect to make it visible after 1s */
-  @keyframes fadeIn {
-    0% {
-      visibility: hidden;
-      opacity: 0;
-    }
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-  @keyframes hide-caret {
-    to {
-        border-right: none; /* Removes the caret after 1 second */
-    }
+    display: block;
+    width: 100%;
+    text-decoration: none;
 }
-  
 
+a.link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.05rem;
+}
