@@ -4,14 +4,14 @@
 /* Set up CSS variables */
 :root {
     --primary-text-color: #424242;
-    --secondary-text-color: #585858;
+    --secondary-text-color: #6b6b6b;
     --accent-blue: #276DD8;
     --background-blue: #6790E0;
     --accent-green: #72c884;
     --accent-red: #f37f7f;
     --accent-yellow: #ffea70;
     --background-color: #fffff7;
-    --secondary-background-color: #eee;
+    /* --secondary-background-color: #c4c4c4; */
     --regular-family: "Space Mono", monospace;
     --heading-family: "Lekton", monospace;
     --font-size: 16px; /* media queries */
@@ -63,6 +63,46 @@ p, span {
     text-decoration: underline;
 }
 
+.blue {
+    color: var(--accent-blue);
+}
+
+.red {
+    color: var(--accent-red);
+}
+
+.green {
+    color: var(--accent-green);
+}
+
+.yellow {
+    color: var(--accent-green);
+}
+
+.bg-blue {
+    background-color: var(--accent-blue);
+}
+
+.bg-red {
+    background-color: var(--accent-red);
+}
+
+.bg-green {
+    background-color: var(--accent-green);
+}
+
+.bg-yellow {
+    background-color: var(--accent-yellow);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
 /* Style each menu item */
 #about {
     left: 25%;
@@ -110,6 +150,8 @@ p, span {
     position: absolute;
     resize: both;
     overflow: auto;
+    transition: width 0.1s, height 0.1s, top 0.1s, left 0.1s;
+
 }
 
 .terminal-header {
@@ -136,31 +178,20 @@ p, span {
 
 .terminal-btn {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    font-size: 11.5px;
     border-radius: 50%;
     border: none;
 }
 
 .terminal-btn i {
-    translate: -3px -0.5px;
-}
-
-#terminal-close {
-    background-color: var(--accent-red);
+    translate: -3px -0.75px;
+    color: rgba(0, 0, 0, 50%)
 }
 
 #terminal-close i {
-    translate: -2px 0;
-}
-
-#terminal-minimize {
-    background-color: var(--accent-yellow);
-}
-
-#terminal-expand {
-    background-color: var(--accent-green);
+    translate: -1.75px 0;
 }
 
 .terminal-title {
@@ -173,5 +204,42 @@ p, span {
 
 .terminal-body {
     margin: 15px;
+    display: flex-box;
+    align-items: center;
+    justify-content: center;
 }
+
+.project-link-container { 
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-link { 
+    margin-right: 32px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--primary-background-color);
+    color: var(--accent-green);
+    font-weight: 700;
+    font-family: var(--regular-family);
+    text-decoration: none;
+}
+
+.underline:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.05rem;
+}
+
+.close-btn { 
+    font-size: 18px;
+    margin-top: 6px;
+    width: 100%;
+    border: none;
+    background-color: var(--primary-background-color);
+    color: var(--accent-red);
+    font-family: var(--regular-family);
+    text-decoration: none;
+}
+
+
 

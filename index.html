@@ -40,15 +40,15 @@
         </div>
 
         <div class="terminal-window" id="terminal-window">
-            <div class="terminal-header">
+            <div class="terminal-header" id="terminal-header">
                 <div class="terminal-btn-container" id="terminal-btn-container" onmouseover="displayIcon()">
-                    <button onclick="hideTerminal()" class="terminal-btn" id="terminal-close">
+                    <button onclick="clearTerminal()" class="terminal-btn bg-red" id="terminal-close">
                         <i class="fa-solid fa-times"></i>
                     </button>
-                    <button onclick="hideTerminal()" class="terminal-btn" id="terminal-minimize">
+                    <button onclick="hideTerminal()" class="terminal-btn bg-yellow" id="terminal-minimize">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <button onclick="maximizeTerminal()" class="terminal-btn" id="terminal-expand">
+                    <button onclick="maximizeTerminal()" class="terminal-btn bg-green" id="terminal-expand">
                         <i class="fa-solid fa-expand"></i>
                     </button>
                     <!-- <div class="terminal-btn" id="terminal-minimize"></div>
@@ -56,8 +56,7 @@
                 </div>
                 <span class="terminal-title" id="terminal-title">Nguyen Trinh</span>
             </div>
-            <div class="terminal-body">
-                <p>Hi Hello something something</p>
+            <div class="terminal-body" id="terminal-body">
             </div>
         </div>
 
