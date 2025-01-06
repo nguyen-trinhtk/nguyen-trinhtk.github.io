@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lekton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+:root {
+    --primary-text-color: #424242;
+    --secondary-text-color: #585858;
+    --accent-blue: #276DD8;
+    --background-blue: #6790E0;
+    --accent-green: #00A423;
+    --accent-red: #E16969;
+    --background-color: #fffff7;
+    --secondary-background-color: #eee;
+    --regular-family: "Space Mono", monospace;
+    --heading-family: "Lekton", monospace;
+    --font-size: 16px; /* media queries */
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: var(--regular-family);
+    text-align: left;
+    margin: 10vh 10vw;
+}
+
+h1, h3 {
+    font-family: var(--heading-family);
+    color: var(--primary-text-color);
+}
+p, span { 
+    color: var(--secondary-text-color);
+}
+
+.title {
+    position: relative;
+    top: 0.75rem;
+}
+.blue {
+    color: var(--accent-blue);
+}
+
+.red {
+    color: var(--accent-red);
+}
+
+.green {
+    color: var(--accent-green);
+}
+
+.btnContainer {
+    position: relative;
+    top: 3rem;
+    display: flex;
+    flex-direction: flex-start;
+}
+
+.funcBtn {
+    font-family: var(--heading-family);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--secondary-background-color);
+    border: none;
+}
+
+.funcBtn:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.05rem;
+    color: white;
+    background-color: var(--background-blue);
+}
+
+
+.projectLinkContainer { 
+    display: flex;
+    align-items: flex-start;
+}
+
+.projectLink { 
+    padding-right: 2rem;
+    z-index: 1000;
+    color: var(--accent-green);
+    font-weight: 700;
+    font-family: var(--regular-family);
+    text-decoration: none;
+}
+
+.projectLink:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.05rem;
+}
+
+.commandLine {
+    position: relative;
+    top: 1rem;
+    width: 81vw;
+    background-color: var(--secondary-background-color);
+}
+
+.socialContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 4.5rem;
+    width: 80vw;
+    padding-bottom: 2rem;
+}
+
+.socialLink { 
+    font-size: 1.32rem;
+    margin: 0 1rem;
+    color: var(--secondary-text-color);
+}
+
+.content {
+    position: relative;
+    top: 1rem;
+    height: 42vh;
+    width: 80vw;
+    overflow-y: scroll;
+}
