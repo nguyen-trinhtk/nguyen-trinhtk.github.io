@@ -1,3 +1,4 @@
+
 function makeElementDraggable(element) {
     let isDragged = false;
     let startX, startY;
@@ -54,7 +55,7 @@ function showContent(id) {
     terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; cat ${id}.txt </p>`;
     if (id == "about") {
         terminalBody.innerHTML += 
-        '<p>I’m currently a first-year computer science undergrad at Drexel University. I’m interested in software development [hover: web app, mobile app], robotics [hover: autonomous navigation, embedded systems, IoT], and math [hover: modeling, analysis, optimization], but anything can be my rabbit hole. </p><p>Earlier, I worked as a robotics research intern at Fulbright University Vietnam’s Makerspace and was a representative of Vietnam at the 2022 World Robot Olympiad. I’m also committed to supporting equity in tech as an active member of Rewriting the Code.</p><p>In my own time, you’ll see me doing digital paintings, going for a walk and taking photographs, Sporcle-ing, or organizing my Spotify playlist. If not, I’m probably busy enjoying a big hot bowl of Pho.</p>';                
+        '<p>Hi, I’m Nguyen Trinh. I’m currently a first-year computer science undergrad at Drexel University. I’m interested in software development [hover: web app, mobile app], robotics [hover: autonomous navigation, embedded systems, IoT], and math [hover: modeling, analysis, optimization], but anything can be my rabbit hole. </p><p>Earlier, I worked as a robotics research intern at Fulbright University Vietnam’s Makerspace and was a representative of Vietnam at the 2022 World Robot Olympiad. I’m also committed to supporting equity in tech as an active member of Rewriting the Code.</p><p>In my own time, you’ll see me either doing digital paintings, going for a walk and taking photographs, Sporcle-ing, or organizing my Spotify playlist. If not, I’m probably busy enjoying a big hot bowl of Pho~</p>';                
     
     }
     else if (id == "experience") {
@@ -108,6 +109,7 @@ function maximizeTerminal() {
     let terminalExpandBtn = document.getElementById("terminal-expand");
     let terminalHeader = document.getElementById("terminal-header");
     if (!isMaximized) {
+        terminalWindow.style.transition = "width 0.1s, height 0.1s, top 0.1s, left 0.1s";
         terminalWindow.style.width = "80vw";
         terminalWindow.style.height = "80vh";
         terminalWindow.style.left = "10vw";
@@ -116,6 +118,7 @@ function maximizeTerminal() {
         terminalHeader.style.borderRadius = "10px 10px 0 0";
         terminalExpandBtn.innerHTML = '<i class="fa-solid fa-expand"></i>';
     } else {
+        terminalWindow.style.transition = "width 0.1s, height 0.1s, top 0.1s, left 0.1s";
         terminalWindow.style.width = "100%";
         terminalWindow.style.height = "100%";
         terminalWindow.style.left = "0";
@@ -125,7 +128,11 @@ function maximizeTerminal() {
         terminalExpandBtn.innerHTML = '<i class="fa-solid fa-compress"></i>';
     }
     isMaximized = !isMaximized;
+    setTimeout(() => {
+        terminalWindow.style.transition = "none";
+    }, 100);
 }
+
 
 let about = document.getElementById("about");
 let experience = document.getElementById("experience");

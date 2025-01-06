@@ -18,7 +18,8 @@
 }
 
 body{
-    background-image: url('assets/temp-bg.jpg');
+    background-image: url('assets/bg2.png');
+    /* background-color: #748cb5; */
     background-repeat: no-repeat;
     background-size: cover;
     font-family: var(--regular-family);
@@ -45,8 +46,9 @@ p, span {
 
 .menu-img {
     display: block;
-    width: 100px;
-    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    /* background-color: #276DD8; */
 }
 
 .menu-text {
@@ -104,40 +106,34 @@ p, span {
 }
 
 /* Style each menu item */
-#about {
-    left: 25%;
-    top: 25%;
-    transform: translate(-25%, -25%);
+#experience {
+    left: 7.5%;
+    top: 17.5%;
 }
 
-#experience {
-    left: 50%;
-    top: 50%;
-    transform: translate(50%, 50%);
+#about {
+    left: 25%;
+    top: 5%;
 }
 
 #projects {
-    left: 25%;
+    left: 15%;
     top: 50%;
-    transform: translate(25%, 50%);
 }
 
 #skills {
-    left: 50%;
-    top: 25%;
-    transform: translate(50%, 25%);
+    left: 65%;
+    top: 12.5%;
 }
 
 #contact {
     left: 75%;
-    top: 50%;
-    transform: translate(75%, 50%);
+    top: 45%;
 }
 
 #random {
-    left: 0%;
-    top: 25%;
-    transform: translate(0%, 25%);
+    left: 60%;
+    top: 62.5%;
 }
 
 /* Style terminal window */
@@ -150,8 +146,6 @@ p, span {
     position: absolute;
     resize: both;
     overflow: auto;
-    transition: width 0.1s, height 0.1s, top 0.1s, left 0.1s;
-
 }
 
 .terminal-header {
