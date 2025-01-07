@@ -19,7 +19,7 @@
 
 body{
     background-image: url('assets/bg2.png');
-    /* background-color: #748cb5; */
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: var(--regular-family);
@@ -48,6 +48,9 @@ p, span {
     display: block;
     width: 150px;
     height: 150px;
+    will-change: transform, filter;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+    transition: filter 0.2s ease;
     /* background-color: #276DD8; */
 }
 
@@ -235,5 +238,17 @@ p, span {
     text-decoration: none;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    left: 2%;
+    text-align: left;
+    font-size: 12px;
+  }
+
+footer p {
+    color: white;
+}
 
 
