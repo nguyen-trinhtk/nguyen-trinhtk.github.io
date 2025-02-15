@@ -213,51 +213,86 @@ function makeElementDraggable(element) {
     }
 }
 
-//show page's content in terminal
-function showContent(id) {
-    terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; cd ${id} </p>`;
+
+function initializeTerminal() {
+    terminalBody.innerHTML = '';  // Clear the terminal initially
+    terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; </p>`; // Show the default command line
+}
+
+// // Function to type content after the command execution line
+
+function showContent(id, typing = true) {
+    removeTypedContent();
+    let typingContent = '';
+    let terminalOutput = '';
     cwd = `/${id}`;
-    terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; cat ${id}.txt </p>`;
+    terminalOutput += `<span>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; </span>`;
+
+    typingContent += `<span> cat ${id}.txt</span><br>`;
     if (id == "about") {
-        terminalBody.innerHTML += `<p>${aboutObj.content}</p>`;               
+        typingContent += aboutObj.content;
     }
     else if (id == "experience") {
         experienceObj.content.experience.forEach(item => {
-            terminalBody.innerHTML += `<span>|<br><b>[${item.year}]</b>[<span class="blue">${item.role}</span> @ <span class="green">${item.organization}]<br></span></span>`;
-            terminalBody.innerHTML += `<span>${item.description}</span><br>`;
-            terminalBody.innerHTML += `|<br>`;
-          });
+            typingContent += `<span>|<br><b>[${item.year}]</b>[<span class="blue">${item.role}</span> @ <span class="green">${item.organization}]<br></span></span>`;
+            typingContent += `<span>${item.description}</span><br>`;
+            typingContent += `|<br>`;
+        });
     }
     else if (id == "projects") {
-        terminalBody.innerHTML += `<p>${projectsObj.intro}</p>`;
+        typingContent += `<p>${projectsObj.intro}</p>`;
         projectsObj["major-projects"].forEach(project => {
-            terminalBody.innerHTML += `<b class='underline green project-item' onclick="showProjectDetails('${project}')">${project}</b>`;
+            typingContent += `<b class='underline green project-item' onclick="showProjectDetails('${project}')">${project}</b>`;
         });
-        terminalBody.innerHTML += `<p>${projectsObj.note}</p>`;
+        typingContent += `<p>${projectsObj.note}</p>`;
         projectsObj["side-projects"].forEach(project => {
-            terminalBody.innerHTML += `<b class='underline green project-item' onclick="showProjectDetails('${project}')">${project}</b>`;
+            typingContent += `<b class='underline green project-item' onclick="showProjectDetails('${project}')">${project}</b>`;
         });
     }
     else if (id == "skills") {
         skillsObj.categories.forEach(category => {
-            terminalBody.innerHTML += `<span><b>[${category.category}]</b><br></span>`;
+            typingContent += `<span><b>[${category.category}]</b><br></span>`;
             category.tags.forEach(tag => {
-              terminalBody.innerHTML += `<span class="skill">${tag}</span>`;
+                typingContent += `<span class="skill">${tag}</span>`;
             });
-            terminalBody.innerHTML += `<br><br>`;
-          });
+            typingContent += `<br><br>`;
+        });
     }
     else if (id == "contact") {
-        terminalBody.innerHTML += `<p>${contactObj.content}</p>`;
+        typingContent += `<p>${contactObj.content}</p>`;
         contactObj.contact.forEach(item => {
-            terminalBody.innerHTML += `<div class="tooltip underline"><a href="${item.address}" target="_blank" class="underline blue">${item.platform}<span class="tooltiptext">${item.title}</span></a></div>`;
-          });
+            typingContent += `<div class="tooltip underline"><a href="${item.address}" target="_blank" class="underline blue">${item.platform}<span class="tooltiptext">${item.title}</span></a></div>`;
+        });
     }
     else if (id == "random") {
+        typingContent += `<p>Random content goes here!</p>`;
     }
-    terminalBody.innerHTML += '<button onclick="clearTerminal()" class="close-btn underline"><< Back to home</button>';
-    // terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284;`;
+    typingContent += '<button onclick="clearTerminal()" class="close-btn underline"><< Back to home</button>';
+    
+    document.getElementById("terminal-body").innerHTML = terminalOutput;
+    let typedElement = document.createElement('span');
+    typedElement.classList.add('typing-content');
+    document.getElementById("terminal-body").appendChild(typedElement);
+
+    if (typing) { 
+        new Typed(typedElement, {
+            strings: [typingContent],
+            typeSpeed: 1,
+            startDelay: 250,
+            showCursor: false
+        });
+    }
+    else {
+        document.querySelector('.typing-content').innerHTML = typingContent;
+    }
 }
+
+// Function to clear the terminal
+function clearTerminal() {
+    typed.destroy();
+    terminalBody.innerHTML = ''; // Clears everything in the terminal when closed
+}
+
 
 //responsive terminal title
 function setTerminalTitle() {
@@ -318,25 +353,48 @@ function maximizeTerminal() {
 }
 
 function showProjectDetails(projectName) {
+    removeTypedContent();
     const project = data.projects.find(proj => proj.name === projectName);
     if (!project) return;
-
-    // Clear terminal
-    terminalBody.innerHTML = "";
+    let typingPrjContent = '';
+    terminalBody.innerHTML += `<span>${cmdStart} <b class="blue">~${cwd}</bn>&#65284; </span>`;
 
     // Display project details
-    terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; cd ${projectName}</p>`;
     cwd = `/projects/${projectName}`;
-    terminalBody.innerHTML += `<p>${cmdStart} <span class="blue bold">~${cwd}</span>&#65284; cat ${projectName}.txt </p>`;
-    terminalBody.innerHTML += `<h3>${project.name} - ${project.subhead} <a href="${project.link}" target="_blank" class="project-link">&#x2197;</a></h3>`;
-    terminalBody.innerHTML += `<p>${project.description}</p>`;
-    terminalBody.innerHTML += `<u>Tech stack</u>:`;
-    project.techtags.forEach(tag => {
-        terminalBody.innerHTML += `<span class="skill">#${tag}</span>`;
-      });
+    typingPrjContent += `<span>cat ${projectName}.txt </span>`;
+    typingPrjContent += `<h3>${project.name} - ${project.subhead} <a href="${project.link}" target="_blank" class="project-link">&#x2197;</a></h3>`;
+    typingPrjContent += `<p>${project.description}</p>`;
+    typingPrjContent += `<u>Tech stack</u>:`;
 
-    // Back button
-    terminalBody.innerHTML += '<button onclick="clearTerminal()" class="close-btn underline"><< Back to home</button>';
+    project.techtags.forEach(tag => {
+        typingPrjContent += `<span class="skill">#${tag}</span>`;
+      });
+    typingPrjContent += '<button onclick="backToProjects()" class="close-btn underline"><< Back to projects</button>';
+    let typedPrjElement = document.createElement('span');
+    typedPrjElement.classList.add('project-details');
+    document.getElementById("terminal-body").appendChild(typedPrjElement); 
+    new Typed(typedPrjElement, {
+          strings: [typingPrjContent],
+          typeSpeed: 0,
+          cursor: false
+    });
+
+}
+
+function backToProjects() {
+    removeTypedContent();
+    showContent("projects", false);
+}
+
+function removeTypedContent() {
+    const elements1 = document.querySelectorAll('.typing-content');
+    elements1.forEach(element => {
+        element.remove();
+    });
+    const elements2 = document.querySelectorAll('.project-details');
+    elements2.forEach(element => {
+        element.remove();
+    });
 }
 
 //sprite
@@ -371,7 +429,7 @@ let random = document.getElementById("random");
 let terminalWindow = document.getElementById("terminal-window");
 let isMaximized = false;
 let terminalBody = document.getElementById("terminal-body");
-let cmdStart = '<span class="green bold">nguyen-trinh</span>:';
+let cmdStart = '<span class="green bold">nguyen-trinh@pa19104</span>:';
 let cwd = "";
 let spriteCnt = 0;
 terminalWindow.style.display = "none";
