@@ -11,6 +11,7 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <div class="menu-item-container">
         <div class="menu-item" id="about">
             <img class="menu-img" src="./assets/about.png" draggable="false">
             <span class="menu-text">about me</span>
@@ -41,8 +42,9 @@
             <img class="menu-img" src="./assets/random.png" draggable="false">
             <span class="menu-text">random</span>
         </div>
-
-        <div class="terminal-window" id="terminal-window">
+    </div>
+    
+            <div class="terminal-window" id="terminal-window">
             <div class="terminal-header" id="terminal-header">
                 <div class="terminal-btn-container" id="terminal-btn-container" onmouseover="displayIcon()">
                     <button onclick="clearTerminal()" class="terminal-btn bg-red" id="terminal-close">
@@ -61,11 +63,13 @@
             </div>
             <div class="terminal-body" id="terminal-body">
             </div>
-        </div>
+            </div>
+
         <div class="sprite tooltip" onmouseover="spriteSpeak()">
             <img src="./assets/icon.png" draggable="false">
             <span class="tooltiptext"  id="spritetooltip">nn</span>
         </div>
+        
 </body>
 <footer>
     <p class="footer-text"><span style="font-size: 30px; position: relative; top: 12px; color: white;">&copy;</span> 2025 by Nguyen Trinh. All featured artwork is my original work.</p>
