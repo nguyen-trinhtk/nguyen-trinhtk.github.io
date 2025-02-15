@@ -50,9 +50,9 @@ let data ={
             "intro": "Working on projects is my favorite thing to do: it allows me to apply what I’ve learned, pick up new skills, solve problems creatively, and come up with a meaningful final product. I used multiple different languages and tools for each project to diversify my skill set and understand the strengths of each technology.</p><p>Take a look at what I've been creating below!",
             "major-projects": [
                 "PAL",
-                "Soud'n'Soar",
+                "Soud n Soar",
                 "PII-Robot",
-                "WRO'22"
+                "WRO 2022"
             ],
             "side-projects": [
                 "Virtual-Pet",
@@ -80,7 +80,29 @@ let data ={
         },
         {
             "page": "contact",
-            "content": "Hit me up!"
+            "content": "Knock knock, where's Nguyen? <br> Find me here:",
+            "contact": [
+                {
+                    "platform": "my email",
+                    "title": "leave me an email",
+                    "address": "mailto:khanhnguyentrinhthi@gmail.com"
+                },
+                {
+                    "platform": "LinkedIn",
+                    "title": "connect on LinkedIn",
+                    "address": "https://www.linkedin.com/in/khanh-nguyen-trinh/",
+                },
+                {
+                    "platform": "GitHub",
+                    "title": "view my GitHub",
+                    "address": "https://github.com/nguyen-trinhtk/",
+                }, 
+                {
+                    "platform": "read.cv",
+                    "title": "check out my CV",
+                    "address": "https://read.cv/khanhnguyentrinh",
+                }
+            ]
         },
         {
             "page": "random",
@@ -98,7 +120,7 @@ let data ={
             "link": "https://github.com/nguyen-trinhtk/"
         }, 
         {
-            "name": "Soud'n'Soar",
+            "name": "Soud n Soar",
             "subhead": "A something project",
             "description": "bla bla",
             "techtags": ["Python", "Java", "C", "JavaScript", "HTML/CSS", "SQL", "MATLAB", "R"],
@@ -112,12 +134,21 @@ let data ={
             "link": "https://github.com/nguyen-trinhtk/"
         },
         {
-            "name": "WRO'22",
+            "name": "WRO 2022",
             "subhead": "A something project",
             "description": "bla bla",
             "techtags": ["Python", "Java", "C", "JavaScript", "HTML/CSS", "SQL", "MATLAB", "R"],
             "link": "https://github.com/nguyen-trinhtk/"
         }
+    ],
+    "spriteMsg": [
+        "Click on each icon to learn more about me!",
+        "I love a lot of cool stuffs. Find out more at 'about'.",
+        "My current book? Go to 'random' to find out!",
+        "Want to chat? Check out my social at 'contact'.",
+        "Head to 'projects' to see what I've been working on!",
+        "What do I use to make things? They're in 'skills'.",
+        "Been there, done that. See my 'experience'."
     ]
 }
 
@@ -127,6 +158,8 @@ const projectsObj = data.pageDescription.find(page => page.page === "projects");
 const skillsObj = data.pageDescription.find(page => page.page === "skills");
 const contactObj = data.pageDescription.find(page => page.page === "contact");
 const randomObj = data.pageDescription.find(page => page.page === "random");
+
+
 
 
 //draggable icons/pages
@@ -211,10 +244,14 @@ function showContent(id) {
             category.tags.forEach(tag => {
               terminalBody.innerHTML += `<span class="skill">${tag}</span>`;
             });
-            terminalBody.innerHTML += `<br>`;
+            terminalBody.innerHTML += `<br><br>`;
           });
     }
     else if (id == "contact") {
+        terminalBody.innerHTML += `<p>${contactObj.content}</p>`;
+        contactObj.contact.forEach(item => {
+            terminalBody.innerHTML += `<div class="tooltip underline"><a href="${item.address}" target="_blank" class="underline blue">${item.platform}<span class="tooltiptext">${item.title}</span></a></div>`;
+          });
     }
     else if (id == "random") {
     }
@@ -302,6 +339,28 @@ function showProjectDetails(projectName) {
     terminalBody.innerHTML += '<button onclick="clearTerminal()" class="close-btn underline"><< Back to home</button>';
 }
 
+//sprite
+function spriteSpeak() {
+    const spriteMsg = data.spriteMsg;
+    const spriteDiv = document.getElementById("spritetooltip");
+    spriteDiv.innerHTML = spriteMsg[spriteCnt];
+    if (spriteCnt < spriteMsg.length - 1) {
+        spriteCnt++;
+    }
+    else {
+        spriteCnt = 0;
+    }
+}
+const sprite = document.querySelector('.sprite');
+function stopFloating() {
+  sprite.classList.remove('float'); // Remove animation forever
+  sprite.removeEventListener('mouseenter', stopFloating); // Ensure it only triggers once
+}
+
+sprite.classList.add('float'); // Start floating initially
+sprite.addEventListener('mouseenter', stopFloating); // Stop floating after first hover
+
+
 //initializing variables
 let about = document.getElementById("about");
 let experience = document.getElementById("experience");
@@ -312,8 +371,9 @@ let random = document.getElementById("random");
 let terminalWindow = document.getElementById("terminal-window");
 let isMaximized = false;
 let terminalBody = document.getElementById("terminal-body");
-let cmdStart = '<span class="green bold">user1</span>:';
+let cmdStart = '<span class="green bold">nguyen-trinh</span>:';
 let cwd = "";
+let spriteCnt = 0;
 terminalWindow.style.display = "none";
 
 [about, experience, projects, skills, contact, random, terminalWindow].forEach(makeElementDraggable);
