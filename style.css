@@ -3,22 +3,24 @@
 
 /* Set up CSS variables */
 :root {
-    --primary-text-color: #424242;
+    --primary-text-color: #4a4a4a;
     --secondary-text-color: #6b6b6b;
     --accent-blue: #276DD8;
     --background-blue: #6790E0;
     --accent-green: #72c884;
     --accent-red: #f37f7f;
-    --accent-yellow: #ffea70;
+    --accent-yellow: #ffe668;
+    --accent-pink: #dc7eaf;
     --background-color: #fffff7;
-    /* --secondary-background-color: #c4c4c4; */
+    --secondary-background-color: #c4c4c4;
     --regular-family: "Space Mono", monospace;
     --heading-family: "Lekton", monospace;
     --font-size: 16px; /* media queries */
 }
 
 body{
-    background-image: url('assets/bg2.png');
+    background-image: url('assets/bgtemp.png');
+    /* background-color: #ffda9f; */
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,11 +29,11 @@ body{
     margin: 10vh 10vw;
 }
 
-h1, h3 {
+h1, h2, h3{
     font-family: var(--heading-family);
     color: var(--primary-text-color);
 }
-p, span { 
+h4, h5, h6, p, span, u { 
     color: var(--secondary-text-color);
 }
 
@@ -81,7 +83,11 @@ p, span {
 }
 
 .yellow {
-    color: var(--accent-green);
+    color: var(--accent-yellow);
+}
+
+.pink {
+    color: var(--accent-pink);
 }
 
 .bg-blue {
@@ -100,12 +106,17 @@ p, span {
     background-color: var(--accent-yellow);
 }
 
+.bg-pink {
+    background-color: var(--accent-pink);
+}
+
 .bold {
     font-weight: 700;
 }
 
 .underline {
-    text-decoration: underline;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Style each menu item */
@@ -251,4 +262,34 @@ footer p {
     color: white;
 }
 
+.project-item {
+    display: inline-block;
+    margin: 1rem;
+}
 
+.skill {
+    background-color: var(--secondary-background-color);
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    border-radius: 0.4rem;
+    margin: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill:hover {
+    background-color: var(--secondary-text-color);
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+.project-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
