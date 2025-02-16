@@ -17,7 +17,7 @@
     --heading-family: "Lekton", monospace;
     --font-size: 16px; /* media queries */
     --tool-tip-background: var(--background-blue);
-    --tool-tip-size: 200px;
+    --tool-tip-size: 150px;
 }
 
 body{
@@ -304,12 +304,13 @@ footer p {
   .tooltip .tooltiptext {
     visibility: hidden;
     width: var(--tool-tip-size);
+    font-size: calc(0.75*var(--font-size));
     text-wrap: no-wrap;
     background-color: var(--tool-tip-background);
     color: var(--background-color);
     text-align: center;
     border-radius: 6px;
-    padding: 2px 0;
+    padding: 3px;
     position: absolute;
     z-index: 1;
     bottom: 100%;
