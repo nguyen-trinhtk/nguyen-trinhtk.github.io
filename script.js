@@ -107,7 +107,11 @@ let data ={
         {
             "page": "random",
             "content": [
-                "Hey, I'm currently listening to this song!"
+                "&#128218; Currently reading: <span class='red'>The courage to be disliked</span> by <i class='red'>Fumitake Koga and Ichiro Kishimi</i>",
+                "&#127912; I'm trying to pick up <span class='red'>art</span> again",
+                "&#9749; <span class='red'>Oatmilk cortado</span> is my go-to order nowadays",
+                "&#127911; Song of the day: <a href='https://open.spotify.com/track/2lwOE4xj0tw2Bpjc6wmzUP?si=cd97ffbcd6ea4ec0' target='_blank' class='red underline'>Be There For Me</a> by <span class='red'>Joy</span>",
+                "&#127916; Not watching anything in particular, but I'm loving <span class='red'>travel vlogs</span> these days"
             ]
         }
     ],
@@ -265,7 +269,9 @@ function showContent(id, typing = true) {
         });
     }
     else if (id == "random") {
-        typingContent += `<p>Random content goes here!</p>`;
+        randomObj.content.forEach(item => {
+            typingContent += `${item}<br>`;
+        });
     }
     typingContent += '<button onclick="clearTerminal()" class="close-btn underline"><< Back to home</button>';
     
@@ -357,10 +363,9 @@ function showProjectDetails(projectName) {
     const project = data.projects.find(proj => proj.name === projectName);
     if (!project) return;
     let typingPrjContent = '';
-    terminalBody.innerHTML += `<span>${cmdStart} <b class="blue">~${cwd}</bn>&#65284; </span>`;
-
-    // Display project details
     cwd = `/projects/${projectName}`;
+    terminalBody.innerHTML += `<span>${cmdStart} <b class="blue">~${cwd}</b>&#65284; </span>`;
+    // Display project detail
     typingPrjContent += `<span>cat ${projectName}.txt </span>`;
     typingPrjContent += `<h3>${project.name} - ${project.subhead} <a href="${project.link}" target="_blank" class="project-link">&#x2197;</a></h3>`;
     typingPrjContent += `<p>${project.description}</p>`;
@@ -387,6 +392,7 @@ function backToProjects() {
 }
 
 function removeTypedContent() {
+    terminalBody.innerHTML = '';
     const elements1 = document.querySelectorAll('.typing-content');
     elements1.forEach(element => {
         element.remove();

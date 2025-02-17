@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lekton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap');
 /* Set up CSS variables */
 :root {
     --primary-text-color: #4a4a4a;
@@ -18,6 +17,7 @@
     --font-size: 16px; /* media queries */
     --tool-tip-background: var(--background-blue);
     --tool-tip-size: 150px;
+    --shadow: rgba(146, 120, 59, 0.5);
 }
 
 body{
@@ -57,7 +57,7 @@ p, span, u, a, b, i {
     width: 150px;
     height: 150px;
     will-change: transform, filter;
-    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(5px 5px 10px var(--shadow));
     transition: filter 0.2s ease;
     /* background-color: #276DD8; */
 }
@@ -254,11 +254,12 @@ footer {
     width: 80%;
     left: 2%;
     text-align: left;
-    font-size: 12px;
+
   }
 
 footer p {
-    color: white;
+    font-size: calc(0.75*var(--font-size));
+    color: var(--background-blue);
 }
 
 .project-item {
@@ -343,7 +344,7 @@ footer p {
   .sprite img {
     width: 70px;
     transform: scaleX(-1) rotate(-15deg);
-    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(5px 5px 10px var(--shadow));
 
   }
 
@@ -354,11 +355,17 @@ footer p {
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    6%, 12%, 18% { transform: translateY(-10px); }
-    9%, 15%, 21% { transform: translateY(0); }
+    87.5%, 92.5%, 97.5% { transform: translateY(-10px); }
+    90%, 95%, 100% { transform: translateY(0); }
   }
   
   .sprite.float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .copyright-mark {
+    color: var(--background-blue);
+    position: relative;
+    top: 2px; 
   }
 
