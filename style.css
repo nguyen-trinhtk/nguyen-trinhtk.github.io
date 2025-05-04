@@ -8,7 +8,7 @@
     --primary-text-color: #4b4b4b;
     --primary-background-color: #F9F0E6;
     --secondary-background-color: #FFFBEF;
-    --map-height: 500px;
+    --map-height: 700px;
     --blue: #9ABCD8;
     --red: #F56255;
 
@@ -37,7 +37,7 @@ p {
 
 .main-container {
     width: 100%;
-    height: 500px;
+    height: var(--map-height);
     display: block;
     position: relative;
     border: 1px solid var(--primary-text-color);
@@ -52,6 +52,7 @@ p {
 }
 
 .legend-item {
+    width: calc((100% - 40px) / 3);
     margin-top: 15px;
     display: block;
     align-items: left;
@@ -71,12 +72,134 @@ p {
 .legend-content {
     padding: 0px 20px;
     color: var(--primary-text-color);
+    text-align: center;
 }
 
 .x {
     background-color: var(--blue);
     display: block;
-    margin: 20px;
-    width: calc(100% - 40px);
-    height: 20px;
+    margin: 0px 50px;
+    position: relative;
+    width: calc(100% - 100px);
 }
+
+#x1 {
+    height: 20px;
+    width: calc(100% - 90px);
+    top: 80px;
+    left: -5px;
+    rotate: -5deg;
+}
+
+#x2 {
+    height: 12px;
+    top: 200px;
+}
+
+#x3 {
+    height: 7px;
+    top: 275px;
+}   
+
+#x4 {
+    height: 15px;
+    top: 370px;
+}
+
+#x5 {
+    height: 4px;
+    top: 100px;
+    width: 245px;
+    left: calc(100% - 536px);
+}
+
+.y {
+    background-color: var(--blue);
+    display: inline-block;
+    margin: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+#y1 {
+    width: 12px;
+    height: 120px;
+    left: 80px;
+    top: -380px;
+    rotate: -5deg;
+}
+
+#y2 {
+    width: 7px;
+    height: 120px;
+    left: 100px;
+    top: -380px;
+    rotate: -5deg;
+}
+
+#y3 {
+    width: 40px;
+    height: 500px;
+    top: -50px;
+    left: 170px;
+}
+
+#y4 {
+    width: 18px;
+    height: 150px;
+    top: -380px;
+    left: 200px;
+}
+
+#y5 {
+    width: 4px;
+    height: 75px;
+    top: -378px;
+    left: -165px;
+    rotate: 5deg;
+}
+
+#y6 {
+    width: 13.5px;
+    height: 200px;
+    top: -185px;
+    left: -514px;
+}
+
+#y7 {
+    width: 8px;
+    height: 200px;
+    top: -185px;
+    left: -450px;
+}
+
+#y8 {
+    width: 4px;
+    height: 90px;
+    top: -600px;
+    left: 328px;
+    rotate: -5deg;
+}
+
+#y9 {
+    width: 10px;
+    height: 200px;
+    top: -490px;
+    left: 560px;
+}
+
+#roundabout {
+    z-index: 100;
+    position: absolute;
+    top: 372px;
+    left: 422px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-background-color);
+    border-radius: 50%;
+    border: 20px solid var(--blue);
+}
+
+
+
+
