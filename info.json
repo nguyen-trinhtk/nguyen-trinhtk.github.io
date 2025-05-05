@@ -1,0 +1,125 @@
+{
+    "projects" : [
+        {
+            "name": "Soud n' Soar",
+            "month": 5,
+            "year": 2023,
+            "working": false,
+            "description": "Karaoke App for the Elderly",
+            "skills": [
+                "Tauri (Rust)",
+                "ESP-32",
+                "BlynkIoT", 
+                "Fast Fourier Transform (FFT)",
+                "JavaScript"
+            ],
+            "link" : "https://github.com/nguyen-trinhtk/soudnsoar"
+        },
+        {
+            "name": "PAL",
+            "month": 8,
+            "year": 2023,
+            "working": false,
+            "description": "Colorblind-Friendly Palette Generator",
+            "skills": [
+                "React Native",
+                "k-means Clustering",
+                "DaltonLens"
+            ],
+            "link" : "https://github.com/nguyen-trinhtk/PAL"
+        },
+        {
+            "name": "Drexel Diet",
+            "month": 1,
+            "year": 2025,
+            "working": true,
+            "description": "Personalized Nutrition App for Drexel Students",
+            "skills": [
+                "Flutter (Dart)",
+                "Firebase",
+                "PostgreSQL"
+            ],
+            "link" : "https://github.com/nguyen-trinhtk/drexel-diet-app"
+        },
+        {
+            "name": "Pill Reminder",
+            "month": 4,
+            "year": 2025,
+            "working": true,
+            "description": "Smart Medication Management System",
+            "skills": [
+                "Flutter (Dart)",
+                "Arduino",
+                "Serial Communication", 
+                "Gemini AI (OCR)", 
+                "MongoDB"
+            ],
+            "link" : "https://github.com/nguyen-trinhtk/pill-reminder"
+        }
+    ],
+    "experience" : [
+        {
+            "position": "Lead Programmer",
+            "place": "World Robot Olympiad",
+            "location": "Dortmund, Germany",
+            "month": 11,
+            "year": 2022,
+            "working": false,
+            "skills": [
+                "EV3 Mindstorm",
+                "PID Control",
+                "Path Planning", 
+                "Sensor Calibration"
+            ],
+            "link" : "https://github.com/nguyen-trinhtk/wro2022"
+        },
+        {
+            "position": "Robotics Research Intern",
+            "place": "Fulbright University Vietnam",
+            "location": "Ho Chi Minh City, Vietnam",
+            "month": 9,
+            "year": 2023,
+            "working": false,
+            "skills": [
+                "Arduino", 
+                "Jetson Nano (Ubuntu)", 
+                "Image Processing",
+                "YOLOv5 (Object Detection)", 
+                "Threading", 
+                "Python"
+            ],
+            "link" : "https://github.com/nguyen-trinhtk/PII-Robot"
+        },
+        {
+            "position": "Embedded Math Tutor",
+            "place": "Drexel University, Department of Mathmatics",
+            "location": "Philadelphia, PA",
+            "month": 4,
+            "year": 2025,
+            "working": true,
+            "skills": [
+            ],
+            "link" : ""
+        }
+
+    ], 
+    "contacts" : [
+        {
+            "name": "email",
+            "link": "khanhnguyentrinhthi@gmail.com"
+        },
+        {
+            "name": "github",
+            "link": "https://github.io/nguyen-trinhtk/"
+        },
+        {
+            "name": "linkedin",
+            "link": "https://www.linkedin.com/in/nguyenttk/"
+        }
+    ], 
+    "about" : [
+        "robotics", 
+        "embedded systems",
+        "software development"
+    ]
+}
