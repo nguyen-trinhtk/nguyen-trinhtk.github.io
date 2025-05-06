@@ -6,20 +6,21 @@
     --font-weight: 400;
     --font-style: normal;
     --primary-text-color: #4b4b4b;
-    --primary-background-color: #f2e7dc;
+    --primary-background-color: #ffead7;
     --secondary-background-color: #fffdf4;
     --map-height: 700px;
     --blue: #9ABCD8;
     --red: #F56255;
 }
 
-html {
-    position: relative;
+body {
+    width: 100%;
+    height: 100%;
 }
 
-body {
+.main-container {
     width: 75%;
-    margin: 10px auto;
+    margin: auto;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     font-style: var(--font-style);
@@ -39,7 +40,7 @@ p {
     color: var(--primary-text-color);
 }
 
-.main-container {
+.map-container {
     width: 100%;
     display: block;
     position: relative;
@@ -93,10 +94,31 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     pointer-events: none;
     z-index: 9999;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.4'/></svg>");
     background-repeat: repeat;
 }
+
+
+.passport-click {
+    position: absolute;
+    top: 10%;
+    left: 7.5%;
+    z-index: 1000;
+    width: 110px;
+    height: 150px;
+    cursor: pointer;
+    background-color: var(--red);
+    rotate: -25deg;
+    border-radius: 10px;
+    border: solid var(--primary-text-color) 2px;
+}
+
+.name {
+    width: 100%;
+    text-align: right;
+}
+
 
