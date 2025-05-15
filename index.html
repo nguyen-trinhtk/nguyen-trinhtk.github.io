@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nguyen trinh</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-</head>
-<body>
-<div class="main-container">
-        <h3 class="name">first last</h3>
-        <div class="map-container">
-            <img class="map-image" src="./assets/mapwithlabel.svg" alt="Map">
-        </div>
-        <!-- <div class="legends-container">
-            <div class="legend-item">
-                <h4 class="legend-title">Legend</h4>
-                <p class="legend-content">Legend1<br>Legend1<br>Legend1<br></p>
-            </div>
-
-            <div class="legend-item">
-                <h4 class="legend-title">Legend</h4>
-                <p class="legend-content">Legend1<br>Legend1<br>Legend1<br></p>
-            </div>
-
-            <div class="legend-item">
-                <h4 class="legend-title">Legend</h4>
-                <p class="legend-content">Legend1<br>Legend1<br>Legend1<br></p>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="title">nguyen trinh</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="script.js" defer></script>
+        <link rel="icon" type="image/x-icon" href="./icon.svg">
+    </head>
+    <body>
+        <!-- <div class="collapsible">
+            <h2 class="name">nguyen trinh <span class="subtle">pronounced /n-win chin/</span></h2>
         </div> -->
-</div>
-<div class="passport-click">  
-</div>
-</body>
-<div class="noise-overlay"></div>
+        <div class="main-container">
+            <div class="side-bar">
+                <div class="section" id="about" onclick="handleSection('about')">about</div>
+                <div class="section" id="projects" onclick="handleSection('projects')">projects</div>
+                <div class="section" id="achievements" onclick="handleSection('achievements')">achievements</div>
+                <div class="section" id="thoughts" onclick="handleSection('thoughts')">hmm...</div>                
+            </div>
+            <div class="content" id = "content">
+            </div>
+        </div>
+    </body>
 </html>
