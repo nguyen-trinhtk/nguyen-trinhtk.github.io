@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata:wght@400;500;600&display=swap');
 :root {
-    --font-family: "Poppins", system-ui;
+    --font-family: "Prata", system-ui;
     --font-weight: 400;
     --font-style: normal;
     --primary-background-color: #fff;
     --secondary-background-color: #eeeeee;
     --primary-text-color: #555;
     --secondary-text-color: #9c9c9c;
-    --cursor: url('cursor.png') 12 12, auto;
+    --cursor: url('assets/cursor.png') 12 12, auto;
 }
 
 body {
@@ -26,11 +26,18 @@ h1, h2, h3, h4, h5, h6, p, span, a {
     color: var(--primary-text-color);
     margin: 0.5rem;
     padding: 0;
+
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
 }
 
 .subtle {
     color: var(--secondary-text-color);
-    font-size: 0.8rem;
+    font-size: 1.2rem;
 }
 
 .collapsible {
@@ -107,7 +114,7 @@ li {
     background-color: var(--primary-background-color);
     padding: 0.25rem 0.5rem;
     margin: 0rem 1rem;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--secondary-text-color);
 }
 
@@ -119,7 +126,7 @@ li {
 
 h3, h4 {
     color: var(--primary-text-color);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
@@ -142,25 +149,58 @@ p {
     cursor: var(--cursor);
 }
 
+/* Container for projects */
 .project {
-    margin: 1rem 0.5rem;
-    display: block;
-    flex-direction: column;
-    /* border: solid 1px var(--secondary-text-color); */
-    padding: 0.75rem 0.25rem;
-    border-radius: 16px;
+    position: relative;
+    width: calc(33.33% - 2rem); /* 3 projects per row with spacing */
+    padding-top: calc(33.33% - 2rem); /* Maintain square aspect ratio */
+    margin: 1rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: inline-block;
 }
 
-.project > * {
-    padding: 0rem;
-    margin-top: 0.2rem;
+/* Overlay that starts with 0 height */
+.projectOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Start with 0 height */
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    overflow: hidden; /* Hide content when height is 0 */
+    transition: height 0.3s ease-in-out; /* Smooth height transition */
 }
 
-ul {
-    list-style-type: circle;
-    padding: 0 1rem;
+/* Content inside the overlay */
+.projectOverlayContent {
+    position: absolute;
+    bottom: 1rem; /* 1rem away from the bottom */
+    left: 1rem; /* 1rem away from the left */
+    right: 1rem; /* 1rem away from the right */
 }
 
-li {
-    margin: 0.5rem 0;
+/* Show overlay on hover */
+.project:hover .projectOverlay {
+    height: 100%; /* Expand to full height */
+}
+
+/* Project contents (name, description, skills) */
+.projectOverlay h4,
+.projectOverlay p,
+.projectOverlay .tag {
+    margin: 0.5rem 0; /* Add spacing between elements */
+    color: white;
+}
+
+.projectOverlay p {
+    font-size: 0.75rem;
+}
+
+.projectOverlay h4 {
+    font-size: 1rem;
+    font-weight: 600;
 }

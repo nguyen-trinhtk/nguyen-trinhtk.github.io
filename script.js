@@ -46,30 +46,48 @@ async function handleSection(id) {
                         data[type].projects.forEach(project => {
                             const projectDiv = document.createElement('div');
                             projectDiv.className = 'project';
+                            projectDiv.style.backgroundImage = `url(./assets/${project.img})`;
 
+                            const projectOverlay = document.createElement('div');
+                            projectOverlay.className = 'projectOverlay';
+
+                            // Create a container for the overlay content
+                            const projectOverlayContent = document.createElement('div');
+                            projectOverlayContent.className = 'projectOverlayContent';
+
+                            // Add project name
                             const projectName = document.createElement('h4');
                             projectName.textContent = project.name;
-                            projectDiv.appendChild(projectName);
+                            projectOverlayContent.appendChild(projectName);
 
+                            // Add project description
                             const projectDescription = document.createElement('p');
                             projectDescription.textContent = project.description;
-                            projectDiv.appendChild(projectDescription);
+                            projectOverlayContent.appendChild(projectDescription);
 
+                            // Add project skills
                             const skillsContainer = document.createElement('p');
-
+                            // skillsContainer.innerHTML = 'Built with: ';
                             project.skills.forEach(skill => {
                                 const skillTag = document.createElement('span');
                                 skillTag.className = 'tag';
                                 skillTag.textContent = '#' + skill;
                                 skillsContainer.appendChild(skillTag);
-
                                 skillsContainer.appendChild(document.createTextNode(' '));
                             });
+                            projectOverlayContent.appendChild(skillsContainer);
 
-                            projectDiv.appendChild(skillsContainer);
+                            // Append the content container to the overlay
+                            projectOverlay.appendChild(projectOverlayContent);
 
+                            // Append the overlay to the project div
+                            projectDiv.appendChild(projectOverlay);
+
+                            // Append the project div to the section
                             section.appendChild(projectDiv);
                         });
+
+                        // Append the section to the content section
                         contentSection.appendChild(section);
                     });
                 } else if (id === 'achievements') {

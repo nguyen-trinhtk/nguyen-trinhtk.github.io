@@ -15,7 +15,20 @@
             "intro" : "Here are some significant projects I've been working on...",
             "projects" : [
                 {
-                    "name" : "Pill Reminder", 
+                    "name" : "Pill Reminder",
+                    "img" : "pillreminder.png",
+                    "description" : "This is a ... I built during ...",
+                    "skills" : ["flutter", "flask", "arduino"]
+                }, 
+                {
+                    "name" : "Pill Reminder",
+                    "img" : "pillreminder.png",
+                    "description" : "This is a ... I built during ...",
+                    "skills" : ["flutter", "flask", "arduino"]
+                },
+                {
+                    "name" : "Pill Reminder",
+                    "img" : "pillreminder.png",
                     "description" : "This is a ... I built during ...",
                     "skills" : ["flutter", "flask", "arduino"]
                 }
@@ -27,6 +40,7 @@
             "projects" : [
                 {
                     "name" : "something", 
+                    "img" : "pal.png",
                     "description" : "something",
                     "skills" : ["a", "b", "c"]
                 }
