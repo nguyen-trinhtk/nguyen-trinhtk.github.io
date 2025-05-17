@@ -26,8 +26,7 @@ async function handleSection(id) {
             }
 
             setTimeout(() => {
-                contentSection.innerHTML = ''; // Clear the content section
-
+                contentSection.innerHTML = '';
                 if (id === 'about') {
                     const intro = document.createElement('h3');
                     intro.textContent = data.intro;
@@ -99,9 +98,9 @@ async function handleSection(id) {
                         thoughtItem.textContent = `${thought.title}`;
                         thoughtItem.style.cursor = 'pointer';
                         thoughtItem.onclick = () => {
-                            contentSection.style.opacity = '0'; // Smooth transition effect
+                            contentSection.style.opacity = '0';
                             setTimeout(() => {
-                                contentSection.innerHTML = ''; // Clear the content section
+                                contentSection.innerHTML = '';
 
                                 const title = document.createElement('h3');
                                 title.textContent = thought.title;
@@ -123,7 +122,7 @@ async function handleSection(id) {
                                 backButton.style.marginBottom = '20px';
                                 contentSection.appendChild(backButton);
 
-                                contentSection.style.opacity = '1'; // Smooth transition effect
+                                contentSection.style.opacity = '1';
                             }, 300);
                         };
                         thoughtsList.appendChild(thoughtItem);
@@ -155,4 +154,21 @@ document.addEventListener('DOMContentLoaded', () => {
             collapsible.classList.add('animate');
         });
     }
+
+    document.body.addEventListener('click', (event) => {
+        const overlay = event.target.closest('.projectOverlay');
+        if (overlay) {
+            overlay.classList.remove('clicked');
+            return;
+        }
+    
+        const project = event.target.closest('.project');
+        if (project) {
+            const projectOverlay = project.querySelector('.projectOverlay');
+            if (projectOverlay) {
+                projectOverlay.classList.toggle('clicked');
+            }
+        }
+    });
+    
 });

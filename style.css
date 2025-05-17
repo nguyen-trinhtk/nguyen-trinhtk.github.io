@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prata:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata:wght@400;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 :root {
     --font-family: "Prata", system-ui;
@@ -37,12 +37,12 @@ a {
 
 .name {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 800;
     color: var(--primary-text-color);
 }
 
 .subtle {
-    color: var(--secondary-text-color);
+    color: #ccc;
     font-size: 1.2rem;
 }
 
@@ -219,7 +219,7 @@ p {
 
 .projectOverlayContent a {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary-background-color);
     font-family: var(--font-family);
     text-decoration: none;
@@ -240,4 +240,53 @@ p {
 
 .backBtn:hover {
     text-decoration: underline;
+}
+
+@media screen and (orientation: portrait) {
+    .side-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 10vh;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .content {
+        margin-top: calc(10vh + 1rem);
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    body {
+        margin-bottom: 20vh;
+    }
+    .section {
+        display: flex;
+        width: calc(33.33% - 2rem);
+        text-align: center;
+        flex-direction: column;
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+    .project {
+        position: relative;
+        width: 80vw;
+        padding-top: 80vw;
+        margin: 1.5rem 0;
+        overflow-x: hidden;
+    }
+    .projectOverlay {
+        height: 0;
+        transition: height 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    .projectOverlay.clicked {
+        height: 100%;
+    }
 }
