@@ -172,7 +172,7 @@ p {
 .project {
     position: relative;
     width: calc(50% - 3rem);
-    padding-top: calc(33.33% - 1rem);
+    padding-top: calc(50% - 3rem);
     margin: 1.5rem 1rem;
     background-size: cover;
     background-position: center;
