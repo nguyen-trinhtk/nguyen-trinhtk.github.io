@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Prata:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 :root {
     --font-family: "Prata", system-ui;
+    --secondary-font-family: "Montserrat", system-ui;
     --font-weight: 400;
     --font-style: normal;
     --primary-background-color: #fff;
     --secondary-background-color: #eeeeee;
     --primary-text-color: #555;
-    --secondary-text-color: #9c9c9c;
+    --secondary-text-color: #717171;
     --cursor: url('assets/cursor.png') 12 12, auto;
 }
 
@@ -16,17 +18,21 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* cursor: var(--cursor); */
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a {
+h1, h2, h3, h4, h5, h6, p, span {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     font-style: var(--font-style);
     color: var(--primary-text-color);
     margin: 0.5rem;
     padding: 0;
+    line-height: 150%;
+}
 
+a {
+    font-family: var(--secondary-font-family);
+    color: var(--secondary-text-color);
 }
 
 .name {
@@ -44,17 +50,26 @@ h1, h2, h3, h4, h5, h6, p, span, a {
     position: absolute;
     top: 0;
     display: flex;
+    flex-direction: column; /* Stack child elements vertically */
     background-color: var(--primary-background-color);
     width: 100vw;
     height: 100vh;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Center-align horizontally */
+    justify-content: center; /* Center-align vertically */
     z-index: 999;
-    animation: collapse 0.5s ease-in 1s forwards;
 }
 
-.collapsible > * {
-    animation: fadeOut 0.5s ease-in 1s forwards;
+.collapsible p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.collapsible.animate {
+    animation: collapse 0.5s ease-in forwards;
+}
+
+.collapsible.animate > * {
+    animation: fadeOut 0.5s ease-in forwards;
 }
 
 @keyframes collapse {
@@ -87,34 +102,39 @@ h1, h2, h3, h4, h5, h6, p, span, a {
     position: fixed;
     top: 10vh;
     left: 0;
-    /* background-color: var(--primary-text-color); */
     height: 85vh;
     width: 20vw;
-    flex: none;
-    border-right: 1px solid var(--secondary-text-color);
+    border-right: 1px solid #ddd;
 }
 
 .content {
-    margin-top: 15vh;
-    margin-left: 20vw;
+    margin-top: 10vh;
+    margin-left: calc(20vw + 3rem);
+    margin-right: 3rem;
     padding: 1rem;
     overflow-y: scroll;
-    height: 100vh;
+    height: 85vh;
     flex: 1;
-    transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
-    opacity: 1; /* Default opacity */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
 }
 
 li {
     color: var(--secondary-text-color);
-    font-size: 0.8rem;
+    font-family: var(--secondary-font-family);
+    font-size: 0.9rem;
+    list-style: circle;
+}
+
+li:hover {
+    text-decoration: underline;
 }
 
 .section {
     background-color: var(--primary-background-color);
     padding: 0.25rem 0.5rem;
-    margin: 0rem 1rem;
-    font-size: 0.9rem;
+    margin: 0 1rem;
+    font-size: 1rem;
     color: var(--secondary-text-color);
 }
 
@@ -123,38 +143,37 @@ li {
     cursor: var(--cursor);
 }
 
-
 h3, h4 {
     color: var(--primary-text-color);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 500;
 }
 
 p {
     color: var(--secondary-text-color);
-    font-size: 0.8rem;
-
+    font-size: 0.9rem;
+    margin: 1rem 1rem 1rem 0.5rem;
+    font-family: var(--secondary-font-family);
 }
 
 .tag {
-    /* background-color: var(--secondary-background-color); */
-    padding: 0.1rem 0.2rem 0.1rem 0rem;
-    font-size: 0.65rem;
-    color: var(--primary-text-color);
+    padding: 0.2rem;
+    font-size: 0.75rem;
+    color: var(--primary-background-color);
     border-radius: 5px;
+    text-decoration: underline;
+    font-family: var(--secondary-font-family);
 }
 
 .tag:hover {
-    text-decoration: underline;
-    cursor: var(--cursor);
+    cursor: pointer;
 }
 
-/* Container for projects */
 .project {
     position: relative;
-    width: calc(33.33% - 2rem); /* 3 projects per row with spacing */
-    padding-top: calc(33.33% - 2rem); /* Maintain square aspect ratio */
-    margin: 1rem;
+    width: calc(50% - 3rem);
+    padding-top: calc(33.33% - 1rem);
+    margin: 1.5rem 1rem;
     background-size: cover;
     background-position: center;
     border-radius: 1rem;
@@ -162,45 +181,63 @@ p {
     display: inline-block;
 }
 
-/* Overlay that starts with 0 height */
 .projectOverlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 0; /* Start with 0 height */
+    height: 0;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
-    overflow: hidden; /* Hide content when height is 0 */
-    transition: height 0.3s ease-in-out; /* Smooth height transition */
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
 }
 
-/* Content inside the overlay */
 .projectOverlayContent {
     position: absolute;
-    bottom: 1rem; /* 1rem away from the bottom */
-    left: 1rem; /* 1rem away from the left */
-    right: 1rem; /* 1rem away from the right */
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
 }
 
-/* Show overlay on hover */
 .project:hover .projectOverlay {
-    height: 100%; /* Expand to full height */
+    height: 100%;
 }
 
-/* Project contents (name, description, skills) */
 .projectOverlay h4,
 .projectOverlay p,
 .projectOverlay .tag {
-    margin: 0.5rem 0; /* Add spacing between elements */
-    color: white;
+    margin: 0.5rem 0;
 }
 
-.projectOverlay p {
-    font-size: 0.75rem;
+.projectOverlayContent p {
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--secondary-background-color);
 }
 
-.projectOverlay h4 {
+.projectOverlayContent a {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--primary-background-color);
+    font-family: var(--font-family);
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.projectOverlayContent a:hover {
+    text-decoration: underline;
+}
+
+.backBtn {
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: var(--secondary-font-family);
+}
+
+.backBtn:hover {
+    text-decoration: underline;
 }

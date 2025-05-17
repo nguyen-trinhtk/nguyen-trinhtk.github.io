@@ -1,7 +1,7 @@
 async function handleSection(id) {
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
-        section.style.color = '#ccc';
+        section.style.color = '#aaa';
     });
 
     const activeId = document.getElementById(id);
@@ -26,14 +26,20 @@ async function handleSection(id) {
             }
 
             setTimeout(() => {
-                contentSection.innerHTML = '';
+                contentSection.innerHTML = ''; // Clear the content section
+
                 if (id === 'about') {
                     const intro = document.createElement('h3');
                     intro.textContent = data.intro;
                     contentSection.appendChild(intro);
-                    data.description.forEach(desc => {
+
+                    data.description.forEach((desc, index) => {
                         const paragraph = document.createElement('p');
-                        paragraph.textContent = desc;
+                        paragraph.innerHTML = desc;
+                        if (index === 0) {
+                            paragraph.style.color = '#aaa';
+                            paragraph.style.fontFamily = 'Prata';
+                        }
                         contentSection.appendChild(paragraph);
                     });
                 } else if (id === 'projects') {
@@ -51,23 +57,21 @@ async function handleSection(id) {
                             const projectOverlay = document.createElement('div');
                             projectOverlay.className = 'projectOverlay';
 
-                            // Create a container for the overlay content
                             const projectOverlayContent = document.createElement('div');
                             projectOverlayContent.className = 'projectOverlayContent';
 
-                            // Add project name
-                            const projectName = document.createElement('h4');
-                            projectName.textContent = project.name;
+                            const projectName = document.createElement('a');
+                            projectName.textContent = `${project.name} ↗︎`;
+                            projectName.href = project.link;
+                            projectName.target = '_blank';
+                            projectName.rel = 'noopener noreferrer';
                             projectOverlayContent.appendChild(projectName);
 
-                            // Add project description
                             const projectDescription = document.createElement('p');
                             projectDescription.textContent = project.description;
                             projectOverlayContent.appendChild(projectDescription);
 
-                            // Add project skills
                             const skillsContainer = document.createElement('p');
-                            // skillsContainer.innerHTML = 'Built with: ';
                             project.skills.forEach(skill => {
                                 const skillTag = document.createElement('span');
                                 skillTag.className = 'tag';
@@ -77,32 +81,12 @@ async function handleSection(id) {
                             });
                             projectOverlayContent.appendChild(skillsContainer);
 
-                            // Append the content container to the overlay
                             projectOverlay.appendChild(projectOverlayContent);
-
-                            // Append the overlay to the project div
                             projectDiv.appendChild(projectOverlay);
-
-                            // Append the project div to the section
                             section.appendChild(projectDiv);
                         });
 
-                        // Append the section to the content section
                         contentSection.appendChild(section);
-                    });
-                } else if (id === 'achievements') {
-                    data.forEach(achievement => {
-                        const achievementDiv = document.createElement('div');
-                        const title = document.createElement('h3');
-                        title.textContent = achievement.title;
-                        const year = document.createElement('p');
-                        year.textContent = `Year: ${achievement.year}`;
-                        const location = document.createElement('p');
-                        location.textContent = `Location: ${achievement.location}`;
-                        achievementDiv.appendChild(title);
-                        achievementDiv.appendChild(year);
-                        achievementDiv.appendChild(location);
-                        contentSection.appendChild(achievementDiv);
                     });
                 } else if (id === 'thoughts') {
                     const intro = document.createElement('h3');
@@ -112,7 +96,36 @@ async function handleSection(id) {
                     const thoughtsList = document.createElement('ul');
                     data.thoughts.forEach(thought => {
                         const thoughtItem = document.createElement('li');
-                        thoughtItem.textContent = thought;
+                        thoughtItem.textContent = `${thought.title}`;
+                        thoughtItem.style.cursor = 'pointer';
+                        thoughtItem.onclick = () => {
+                            contentSection.style.opacity = '0'; // Smooth transition effect
+                            setTimeout(() => {
+                                contentSection.innerHTML = ''; // Clear the content section
+
+                                const title = document.createElement('h3');
+                                title.textContent = thought.title;
+                                contentSection.appendChild(title);
+
+                                const date = document.createElement('p');
+                                date.textContent = thought.date;
+                                date.style.color = '#aaa';
+                                contentSection.appendChild(date);
+
+                                const content = document.createElement('p');
+                                content.textContent = thought.content;
+                                contentSection.appendChild(content);
+
+                                const backButton = document.createElement('div');
+                                backButton.textContent = 'Back';
+                                backButton.className = 'backBtn';
+                                backButton.onclick = () => handleSection('thoughts');
+                                backButton.style.marginBottom = '20px';
+                                contentSection.appendChild(backButton);
+
+                                contentSection.style.opacity = '1'; // Smooth transition effect
+                            }, 300);
+                        };
                         thoughtsList.appendChild(thoughtItem);
                     });
                     contentSection.appendChild(thoughtsList);
@@ -133,5 +146,13 @@ async function handleSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    handleSection('projects');
+    handleSection('about');
+
+    const collapsible = document.querySelector('.collapsible');
+
+    if (collapsible) {
+        collapsible.addEventListener('click', () => {
+            collapsible.classList.add('animate');
+        });
+    }
 });
