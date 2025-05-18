@@ -52,8 +52,8 @@ a {
     display: flex;
     flex-direction: column; /* Stack child elements vertically */
     background-color: var(--primary-background-color);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     align-items: center; /* Center-align horizontally */
     justify-content: center; /* Center-align vertically */
     z-index: 999;
@@ -74,7 +74,7 @@ a {
 
 @keyframes collapse {
     0% {
-        height: 100vh;
+        height: 100%;
     }
     100% {
         height: 0;
@@ -94,8 +94,8 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .side-bar {
@@ -243,21 +243,8 @@ p {
 }
 
 @media screen and (orientation: portrait) {
-    .side-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 10vh;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
     .content {
-        margin-top: calc(10vh + 1rem);
+        margin-top: 4.5rem;
         margin-left: 5vw;
         margin-right: 5vw;
     }
@@ -265,12 +252,29 @@ p {
     body {
         margin-bottom: 20vh;
     }
+    .side-bar {
+        background-color: var(--primary-background-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 0;
+        width: 100vw;
+        height: 3rem;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .section {
         display: flex;
-        width: calc(33.33% - 2rem);
-        text-align: center;
-        flex-direction: column;
-        margin: 1rem 0;
+        width: calc(33.33% - 1rem);
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
         padding: 0.5rem;
     }
     .project {
