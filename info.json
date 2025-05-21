@@ -3,10 +3,10 @@
     {
         "intro" : "Nguyen's here 🫘", 
         "description" : [
-            "quick bio: cs + math @ drexel, proud paper model crafter & surviving on cold brew ☕",
+            "quick bio: cs + math @ drexel; proud paper model crafter; powered by cold brew ☕",
             "I’m all about rolling up my sleeves and build—sometimes an app that transforms how the colorblind see the world or a robot that autonomously cleans up a room—then sneak in some analysis and optimization to enhance their efficiency.",
             "This summer, I’ll be a research assistant for Prof. Jeremy Johnson, working on LINBOX—a high-performance C++ library for linear algebra computations based on Wiedemann’s algorithm. Previously, I interned in robotics at Fulbright University Vietnam in 2023 and represented Vietnam at the 2022 World Robot Olympiad final.",
-            "Away from the screen, I love to put on my “Handy Manny” hat and work on my paper craft models, straining my eyes to find the destination of a Wiki race, or add a 25th quirky hobby to my ever-growing list (see 'Collections' for the full list). And if not, I’m probably cooking the best (my mom’s) Pho recipe out there.",
+            "Away from the screen, I love to put on my “Handy Manny” hat and work on my paper craft models, killing my legs at the gym, or add a 25th quirky hobby to my ever-growing list of funsies (see 'Collections' for the full list). And if not, I’m probably cooking the best (my mom’s) Pho recipe out there.",
             "Find me through <a href='khanhnguyentrinhthi@gmail.com' target='_blank'>email</a>, <a href='https://www.linkedin.com/in/nguyenttk/' target='_blank'>LinkedIn</a>, or <a href='https://github.com/nguyen-trinhtk' target='_blank'>GitHub</a>, and check out <a href='https://read.cv/nguyentrinhtk' target='_blank'>my CV</a>!"
         ]
     }, 
@@ -34,7 +34,7 @@
                     "name" : "PAL",
                     "img" : "pal.png",
                     "description" : "A colorblind-friendly palette generator featuring a built-in colorblindness simulator, contrast checker, and color converter to ensure accessibility in design.",
-                    "skills" : ["react-native", "expo", "k-means clustering"],
+                    "skills" : ["react-native", "scikit", "opencv", "flask"],
                     "link" : "https://github.com/nguyen-trinhtk/PAL"
 
                 },
@@ -62,7 +62,7 @@
                     "name" : "Mr. Discipline",
                     "img" : "discord.png",
                     "description" : "A versatile Discord bot designed to assist students by playing music, setting timers, taking notes, and creating quizzes for better productivity.",
-                    "skills" : ["python", "discord api", "spotify api"],
+                    "skills" : ["python", "discord-api", "spotify-api"],
                     "link" : "https://github.com/nguyen-trinhtk/mr-discipline"
                 }, 
                 {
@@ -70,14 +70,14 @@
                     "img" : "euphoniter.png",
                     "description" : "An online platform dedicated to music enthusiasts, featuring music reviews, artist biographies, and insights into music theory. My first web development project!",
                     "skills" : ["html", "css", "js"],
-                    "link" : "https://github.com/nguyen-trinhtk/pill-reminder"
+                    "link" : "https://github.com/nguyen-trinhtk/euphoniter"
                 }, 
                 {
                     "name" : "Spotify Analyzer",
                     "img" : "spotify.png",
                     "description" : "A Python script that analyzes Spotify listening history (JSON) to generate insights such as top songs, favorite artists, and total listening time, inspired by Spotify Wrapped.",
                     "skills" : ["python", "regex", "json"],
-                    "link" : "https://github.com/nguyen-trinhtk/pill-reminder"
+                    "link" : "https://github.com/nguyen-trinhtk/spot-analyze"
                 }
             ]
         }
@@ -87,9 +87,14 @@
         "intro" : "Very random collections",
         "thoughts" : [
             {
+                "date" : "May 21, 2025",
+                "title" : "My (quite) long list of hobbies",
+                "content" : "<p>I have a lot of hobbies, and I mean A LOT. So I just think it's a good idea to jot down a list of too-specific things I love doing here: <ul><li>Walking hours nonstop to Old City or Fairmount Park (better with gloomy weather)</li><li>Sitting on a beach, catching some snails and shells while having a chilly sauced crab</li><li>Try out a new coffee shop in Rittenhouse</li><li>Grow plants (I guess this is the least specific one)</li><li>Shooting hoops, followed with a Vietnamese banana ice cream</li><li>Self-made mixed berries oatmeal & cold brew + almond milk + coffee jelly for breakfast</li><li>Cooking random recipes from my imagination</li><li>Craving another Vietnamese dish</li><li>Karaoke sessions with some Korean food beforehand</li><li>Art of all kinds: watercolor, charcoal, oil pastels, digital, clay, patches, ANYTHING</li><li>Building paper models of literally everything</li><li>Arrange (for piano) an unplayable version of my currently-obsessed song</li><li>Recreate the melody of ‘Air on the G string’ in Minecraft</li><li>Daydream about the 1001 app idea on my waitlist</li><li>Pluck some mandolin (and snap some)</li><li>Lip sync to a song I don’t know (somehow I still get the melody)</li><li>Dancing (very squiggly like an octopus)</li><li>Yoga or meditation (another non-specific)</li><li>Wiki Race (Covid pandemic taught me this!)</li><li>Sporcle ‘Guess The Beatles’s Song’</li><li>Song Association (basically think of a song that has a certain word in it)</li><li>Staring at the rain from my window</li><li>Intentionally mess up my room just to clean it up</li><li>Having good times with my friends in the (I hate this!) dining hall</li><li>The next one…</li></ul></p>"
+            },
+            {
                 "date" : "May 16, 2025",
                 "title" : "First thoughts",
-                "content" : "Finally, my portfolio is done. I made at least 4 version (with 4 distinctive designs) and never got any of them officially finished. I will not think of another idea. [saying to myself] This is good enough >:( "
+                "content" : "<p>Finally, my portfolio is done. I made at least 4 version (with 4 distinctive designs) and never got any of them officially finished. I will not think of another idea. [saying to myself] This is good enough >:( </p>"
             }
         ]
     }

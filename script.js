@@ -111,8 +111,8 @@ async function handleSection(id) {
                                 date.style.color = '#aaa';
                                 contentSection.appendChild(date);
 
-                                const content = document.createElement('p');
-                                content.textContent = thought.content;
+                                const content = document.createElement('div');
+                                content.innerHTML = thought.content;
                                 contentSection.appendChild(content);
 
                                 const backButton = document.createElement('div');

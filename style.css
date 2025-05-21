@@ -123,6 +123,7 @@ li {
     color: var(--secondary-text-color);
     font-family: var(--secondary-font-family);
     font-size: 0.9rem;
+    line-height: 200%;
     list-style: circle;
 }
 
