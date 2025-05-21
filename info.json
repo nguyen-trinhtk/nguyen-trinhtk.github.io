@@ -1,13 +1,13 @@
 {
     "about" : 
     {
-        "intro" : "Nguyen's speaking 🫘", 
+        "intro" : "Nguyen's here 🫘", 
         "description" : [
-            "CS + Math at Drexel, surviving solely on cold brew ☕",
-            "I enjoy working with real-time algorithms and mathematical analysis to optimize software & hardware systems. I also love developing scalable, accessible applications that solve real-world problems effectively.",
-            "This summer, I’m working as a research assistant under Professor Jeremy Johnson, focusing on sparse matrix computations in C++ as part of high-performance computing research. Previously, I interned in robotics at Fulbright University Vietnam in 2023 and represented Vietnam at the 2022 World Robot Olympiad.",
-            "Under some random rabbit hole, you may catch me volunteering in Powelton or Old City, throwing some paints and brushes, wandering for a new cold brew shop, or writing a 5-page essay on my recently obsessed song. And if not, I’m probably cooking my mom’s Pho recipe.",
-            "Find me through <a href='khanhnguyentrinhthi@gmail.com' target='_blank'>email</a>, <a href='https://www.linkedin.com/in/nguyenttk/' target='_blank'>LinkedIn</a>, or <a href='https://github.com/nguyen-trinhtk' target='_blank'>GitHub</a>, and check out <a href='https://read.cv/nguyentrinhtk' target='_blank'>my CV</a>!"
+            "quick bio: cs + math @ drexel, proud paper model crafter & surviving on cold brew ☕",
+            "I’m all about rolling up my sleeves and build—sometimes an app that transforms how the colorblind see the world or a robot that autonomously cleans up a room—then sneak in some analysis and optimization to enhance their efficiency.",
+            "This summer, I’ll be a research assistant for Prof. Jeremy Johnson, working on LINBOX—a high-performance C++ library for linear algebra computations based on Wiedemann’s algorithm. Previously, I interned in robotics at Fulbright University Vietnam in 2023 and represented Vietnam at the 2022 World Robot Olympiad final.",
+            "Away from the screen, I love to put on my “Handy Manny” hat and work on my paper craft models, straining my eyes to find the destination of a Wiki race, or add a 25th quirky hobby to my ever-growing list (see 'Collections' for the full list). And if not, I’m probably cooking the best (my mom’s) Pho recipe out there."
+                    
         ]
     }, 
     "projects" : 
@@ -84,7 +84,7 @@
     },
     "thoughts" : 
     {
-        "intro" : " This may be random, but... (a series of thoughts ",
+        "intro" : "Very random collections",
         "thoughts" : [
             {
                 "date" : "May 16, 2025",
