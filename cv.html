@@ -3,125 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CV | Nguyen Trinh</title>
 </head>
 <body>
     
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+  :root {
+    --text-1: #424242;
+    --text-2: #787878;
+    --text-3: #bdbdbd;
+    --background: #fefefe;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--text-2);
+    font-weight: 300;
+    font-family: "Poppins", system-ui;
+    margin: 2rem 1rem;
+    line-height: 150%;
+    font-size: 0.85rem;
+  }
+
+  .header {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 7.5rem 1fr;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.pfp {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  justify-self: left;
+  object-fit: cover;
+  border: 1px solid var(--text-3);
+}
+
+  .info {
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .info p {
+    margin: 0;
+  }
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-1);
+  margin: 0;
+}
+
+
   .section {
     margin-top: 3rem;
   }
 
   .section h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 400;
     margin-bottom: 1rem;
-    color: #374151;
+    color: var(--text-1);
   }
 
   .entry {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 7.5rem 1fr;
     column-gap: 1rem;
     margin-bottom: 2rem;
   }
 
-  .entry .dates {
-    font-weight: 500;
-    color: #6b7280;
-    font-size: 0.95rem;
+  .entry .left {
+    color: var(--text-3);
   }
 
-  .entry .details a {
-    color: #1d4ed8;
+  .entry .right a, strong {
+    color: var(--text-1);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
   }
 
-  .entry .details a:hover {
+  .entry .right a:hover {
     text-decoration: underline;
   }
 
-  .entry .details a::after {
+  .entry .right a::after {
     content: ' ↗';
   }
 
-  .entry .details .location {
-    font-size: 0.9rem;
-    color: #6b7280;
+  .entry .right p {
+    margin: 0.3rem 0 0 0 ;
+  }
+
+  .no-margin .entry {
+    margin-bottom: 0.75rem;
+  }
+
+  .entry .right .location {
+    color: var(--text-2);
     margin-bottom: 0.5rem;
   }
 
-  .entry .details ul {
+  .entry .right ul {
     margin: 0;
-    padding-left: 1.2rem;
+    margin-top: 1rem;
+    padding-left: 0rem;
     list-style-type: disc;
   }
 
-  /* Default light mode styles */
-body {
-  background-color: #ffffff;
-  color: #111827; /* dark gray text */
-  font-family: Arial, sans-serif;
-}
+  .entry .right ul li {
+    margin-bottom: 0.5rem;
+  }
 
-a {
-  color: #1d4ed8;
-}
+  .entry .right  .no-bullet {
+    list-style-type: none;
+  }
 
-a:hover {
-  text-decoration: underline;
-}
+  .entry .right .no-bullet li {
+    margin: 0.25rem 0 0 0;
+  }
+  @media (prefers-color-scheme: dark) {
+      :root {
+      --text-1: #f0f0f0;
+      --text-2: #c0c0c0;
+      --text-3: #939393;
+      --background: #222222;
+    }
+  }
 
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
+@media(min-width: 768px) {
   body {
-    background-color: #121212;
-    color: #d1d5db; /* lighter gray text */
+    margin: 10% 20%;
   }
+}
 
-  a {
-    color: #60a5fa; /* lighter blue */
-  }
-
-  .entry .dates {
-    color: #9ca3af; /* lighter gray for dates */
-  }
-
-  .entry .details .location {
-    color: #9ca3af;
-  }
-
-  .section h2 {
-    color: #e5e7eb;
-  }
+.pfp-wrapper {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.pfp-fallback {
+  position: absolute;
+  top: 0; left: 0;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pfp-fallback svg {
+  width: 5rem;
+  height: 5rem;
+  display: block;
 }
 </style>
 
 
-
-<div class="section">
-  <h2>Education</h2>
-  <div class="entry">
-    <div class="dates">Expected: Jun 2028</div>
-    <div class="details">
-      <a href="#">Drexel University, College of Computing and Informatics</a>
-      <div class="location">Philadelphia, PA</div>
-      <ul>
-        <li>B.S. in Computer Science, Minor in Mathematics</li>
-        <li>GPA: 4.0/4.0</li>
-        <li>Honors: Drexel Global Scholar (full-tuition, top 2%); Dean’s List (all terms)</li>
-      </ul>
-    </div>
+<div class="header">
+  <span class="pfp-wrapper">
+    <img class="pfp" src="your-image.jpg" alt="Nguyen Trinh headshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <span class="pfp-fallback" style="display:none;">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="40" fill="#ddd"/>
+        <circle cx="40" cy="32" r="16" fill="var(--background)"/>
+        <ellipse cx="40" cy="60" rx="22" ry="12" fill="var(--background)"/>
+      </svg>
+    </span>
+  </span>
+  <div class="info">
+    <h1 class="name">Nguyen Trinh</h1>
+    <p>Philadelphia, PA</p>
   </div>
 </div>
 
 <div class="section">
-  <h2>Professional Experience</h2>
+  <h2>Work Experience</h2>
 
   <div class="entry">
-    <div class="dates">Jun 2025</div>
-    <div class="details">
+    <div class="left">Upcoming</div>
+    <div class="right">
       <a href="#">Research Assistant – Drexel University College of Computing & Informatics</a>
       <div class="location">Philadelphia, PA</div>
       <ul>
@@ -133,9 +203,9 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Mar 2025</div>
-    <div class="details">
-      <a href="#">Embedded Math Tutor – Drexel University</a>
+    <div class="left">2025—Now</div>
+    <div class="right">
+      <strong>Embedded Math Tutor – Drexel University</strong>
       <div class="location">Philadelphia, PA</div>
       <ul>
         <li>Selected as one of two first-year tutors for exceptional academic performance and accelerated math courseworks</li>
@@ -146,9 +216,9 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Sep 2023</div>
-    <div class="details">
-      <a href="#">Robotics Research Intern – Fulbright University Vietnam</a>
+    <div class="left">2023</div>
+    <div class="right">
+      <a href="https://github.com/nguyen-trinhtk/PII-Robot/blob/main/Results/Report%20Paper.pdf">Robotics Research Intern at Fulbright University Vietnam</a>
       <div class="location">Ho Chi Minh City, Vietnam</div>
       <ul>
         <li>Developed an autonomous bottle-collecting robot utilizing Jetson Nano, LiDAR sensors, and YOLOv5-based computer vision for real-time object detection and navigation in dynamic environments</li>
@@ -159,9 +229,9 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Nov 2022</div>
-    <div class="details">
-      <a href="#">Lead Programmer – World Robot Olympiad</a>
+    <div class="left">2022</div>
+    <div class="right">
+      <a href="https://github.com/nguyen-trinhtk/wro2022">Lead Programmer for World Robot Olympiad</a>
       <div class="location">Dortmund, Germany</div>
       <ul>
         <li>Led the programming of an autonomous competition robot; implemented adaptive PID control, color sensor calibration, and sensor data processing to reduce runtime by 60%; delivered efficient solutions under tight competition constraints</li>
@@ -175,8 +245,8 @@ a:hover {
   <h2>Projects</h2>
 
   <div class="entry">
-    <div class="dates">Apr 2025</div>
-    <div class="details">
+    <div class="left">2025—Now</div>
+    <div class="right">
       <a href="https://github.com/nguyen-trinhtk/pill-reminder" target="_blank">Pill Reminder – Automatic Medication Management System</a>
       <ul>
         <li>Built a Flutter + Flask system combining AI-based prescription parsing, and an Arduino-based smart dispenser</li>
@@ -186,8 +256,8 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Jan 2025</div>
-    <div class="details">
+    <div class="left">2025—Now</div>
+    <div class="right">
       <a href="https://github.com/nguyen-trinhtk/drexel-diet-app" target="_blank">Drexel Diet – Personalized Nutrition App for Drexel Students</a>
       <ul>
         <li>Led a team of 4 to build a Flutter app with Firebase Authentication and Firestore backend, ensuring secure cloud syncing</li>
@@ -199,8 +269,8 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Aug 2023</div>
-    <div class="details">
+    <div class="left">2023—Now</div>
+    <div class="right">
       <a href="https://github.com/nguyen-trinhtk/PAL" target="_blank">PAL – Colorblind-Friendly Palette Generator</a>
       <ul>
         <li>Deployed a React Native app to generate accessible color palettes using K-means clustering and DaltonLens simulations</li>
@@ -211,25 +281,60 @@ a:hover {
   </div>
 </div>
 
-<div class="section">
-  <h2>Technical Skills</h2>
+<div class="section no-margin">
+  <h2>Skills</h2>
   <div class="entry">
-    <div class="dates">Skills</div>
-    <div class="details">
-      <div><strong>Languages:</strong> Python, C++, Dart, JavaScript, Java, SQL</div>
-      <div><strong>Frameworks/Libraries:</strong> TensorFlow, OpenCV, YOLO, React, Flutter</div>
-      <div><strong>Tools/Systems:</strong> Arduino, Robot Operating System (ROS), Git, Linux, Ubuntu, Blynk IoT</div>
+    <div class="left">Languages</div>
+    <div class="right">
+      Python, C++, Dart, JavaScript, Java, SQL
+    </div>
+  </div>
+  <div class="entry">
+    <div class="left">Frameworks/Libraries</div>
+    <div class="right">
+      TensorFlow, OpenCV, YOLO, React, Flutter
+    </div>
+  </div>
+  <div class="entry">
+    <div class="left">Tools/Systems</div>
+    <div class="right">
+      Arduino, Robot Operating System (ROS), Git, Linux, Ubuntu, Blynk IoT
     </div>
   </div>
 </div>
 
 <div class="section">
-  <h2>Leadership & Technical Engagement</h2>
-
+  <h2>Education</h2>
   <div class="entry">
-    <div class="dates">May 2025</div>
-    <div class="details">
-      <strong>Web Developer, IT Specialist – The Triangle</strong>
+    <div class="left">2024—2028</div>
+    <div class="right">
+      <strong>BS in Computer Science at Drexel University</strong>
+      <div class="location">Philadelphia, PA</div>
+      <ul class="no-bullet">
+        <li>Global Scholar, STAR Scholar, Dean’s List</li>
+        <li>GPA: 4.0/4.0</li>
+      </ul>
+    </div>
+  </div>
+    <div class="entry">
+    <div class="left">2021—2024</div>
+    <div class="right">
+      <strong>VNU-HCM High School for the Gifted</strong>
+      <div class="location">Ho Chi Minh City, Vietnam</div>
+      <ul class="no-bullet">
+        <li>Mathematics Specialization</li>
+        <li>GPA: 9.7/10.0, SAT: 1530</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Activities</h2>
+  <div class="entry">
+    <div class="left">2025—Now</div>
+    <div class="right">
+      <strong>Web Developer & IT Specialist at The Triangle</strong>
       <ul>
         <li>Migrated a legacy WordPress/PHP site to a modern React/Node.js/MySQL stack, redesigning the UI and optimizing performance to enhance speed, usability, and user engagement</li>
       </ul>
@@ -237,9 +342,9 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">May 2025</div>
-    <div class="details">
-      <strong>Organizer – DragonHacks, Drexel IEEE</strong>
+    <div class="left">2025—Now</div>
+    <div class="right">
+      <strong>Organizer for DragonHacks (Drexel IEEE)</strong>
       <ul>
         <li>Led outreach for guest speakers and sponsors while managing logistics for Drexel’s 2026 DragonHacks, supporting an anticipated 500+ participants at the annual university hackathon</li>
       </ul>
@@ -247,9 +352,9 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Apr 2025</div>
-    <div class="details">
-      <strong>Programmer – Drexel Robotics</strong>
+    <div class="left">2025—Now</div>
+    <div class="right">
+      <strong>Programming Team at Drexel Robotics</strong>
       <ul>
         <li>Engineered autonomous navigation modules with ROS; integrated and tested depth camera to enhance robot perception</li>
       </ul>
@@ -257,9 +362,9 @@ a:hover {
   </div>
 
   <div class="entry">
-    <div class="dates">Sep 2023</div>
-    <div class="details">
-      <strong>Co-Leader – The Inter-nest Club</strong>
+    <div class="left">2022—2023</div>
+    <div class="right">
+      <strong>Co-Leader at The Inter-nest Club</strong>
       <ul>
         <li>Directed a STEM outreach initiative for underserved students in Vietnam; mentored 20+ student volunteers and instructed Python and Excel courses to 25+ learners, advancing digital literacy and technical skills</li>
       </ul>
@@ -269,82 +374,76 @@ a:hover {
 
 <div class="section">
   <h2>Awards</h2>
-
   <div class="entry">
-    <div class="dates">2024</div>
-    <div class="details">
-      <strong>Drexel Global Scholar – Drexel University</strong>
-      <ul>
-        <li>Selected as one of 8 international students out of 1200+ applicants for full-tuition scholarships based on exceptional academic and leadership achievements</li>
-      </ul>
+    <div class="left">2024</div>
+    <div class="right">
+      <strong>Drexel Global Scholar</strong>
+        <p>Selected as one of only 7 students world-wide for full-tuition scholarships for exceptional academic and leadership achievements</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="left">2022</div>
+    <div class="right">
+      <strong>International Bronze Award at World Robot Olympiad</strong>
+      <p>Placed #23 in the International Final, senior division</p>
     </div>
   </div>
 
   <div class="entry">
-    <div class="dates">2022</div>
-    <div class="details">
-      <strong>Bronze Award at International Final – World Robot Olympiad</strong>
-      <ul>
-        <li>Placed #23 in the International Final, senior division</li>
-      </ul>
+    <div class="left">2022</div>
+    <div class="right">
+      <strong>National Runner-up at World Robot Olympiad</strong>
+        <p>Placed #2 in the national competition; represented Vietnam in the International Final</p>
     </div>
   </div>
 
   <div class="entry">
-    <div class="dates">2022</div>
-    <div class="details">
-      <strong>National Runner-up – World Robot Olympiad</strong>
-      <ul>
-        <li>Placed #2 in the national competition; represented Vietnam in the International Final</li>
-      </ul>
+    <div class="left">2021</div>
+    <div class="right">
+      <strong>Salutatorian - VNU-HCM High School for the Gifted</strong>
+        <p>Ranked #2 in both general and math-specialized categories in the entrance exam</p>
     </div>
   </div>
 
   <div class="entry">
-    <div class="dates">2021</div>
-    <div class="details">
-      <strong>Salutatorian – VNU-HCM High School for the Gifted Entrance Exam</strong>
-      <ul>
-        <li>Ranked #2 in both general and math-specialized categories in the entrance exam</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="entry">
-    <div class="dates">2021</div>
-    <div class="details">
-      <strong>First Prize in Mathematics – Ho Chi Minh City Excellent Student Contest</strong>
-      <ul>
-        <li>Awarded to the top 10% of mathematics-specialized participants</li>
-      </ul>
+    <div class="left">2021</div>
+    <div class="right">
+      <strong>First Prize in Mathematics – HCMC Excellent Student Contest</strong>
+      <p>Awarded to the top 10% of mathematics-specialized participants in Ho Chi Minh City</p>
     </div>
   </div>
 </div>
 
-<div class="section">
+<div class="section no-margin">
   <h2>Contact</h2>
   <div class="entry">
-    <div class="dates">Email</div>
-    <div class="details">nt636@drexel.edu</div>
-  </div>
-  <div class="entry">
-    <div class="dates">LinkedIn</div>
-    <div class="details">
-      <a href="https://linkedin.com/in/nguyenttk/" target="_blank">linkedin.com/in/nguyenttk/</a>
+    <div class="left">Email</div>
+    <div class="right">
+      <a href="mailto:khanhnguyentrinhthi@gmail.com" target="_blank">khanhnguyentrinhthi@gmail.com</a>
     </div>
   </div>
   <div class="entry">
-    <div class="dates">GitHub</div>
-    <div class="details">
-      <a href="https://github.com/nguyen-trinhtk" target="_blank">github.com/nguyen-trinhtk</a>
+    <div class="left">LinkedIn</div>
+    <div class="right">
+      <a href="https://linkedin.com/in/nguyenttk/" target="_blank">nguyenttk</a>
     </div>
   </div>
   <div class="entry">
-    <div class="dates">Website</div>
-    <div class="details">
+    <div class="left">GitHub</div>
+    <div class="right">
+      <a href="https://github.com/nguyen-trinhtk" target="_blank">nguyen-trinhtk</a>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="left">Website</div>
+    <div class="right">
       <a href="https://nguyen-trinhtk.github.io" target="_blank">nguyen-trinhtk.github.io</a>
     </div>
   </div>
 </div>
+
+<footer style="text-align:center; color: var(--text-3); font-size: 0.8em; margin-top: 2rem;">
+  Design inspired by <a href="https://read.cv" target="_blank" style="color: var(--text-3);">read.cv</a> (site discontinued)
+</footer>
 </body>
 </html>
