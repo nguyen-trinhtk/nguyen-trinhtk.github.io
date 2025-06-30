@@ -189,13 +189,15 @@ async function handleSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname !== '/') {
-        window.location.replace('/');
-        return;
+    let initialSection = window.location.pathname.slice(1); // remove leading '/'
+    if (!initialSection) {
+        initialSection = 'about';
+        history.replaceState({ section: initialSection }, '', '/');
+    } else {
+        history.replaceState({ section: initialSection }, '', window.location.pathname);
     }
-    
-    history.replaceState({ section: 'about' }, '', '/');
-    handleSection('about');
+    handleSection(initialSection);
+
 
     const collapsible = document.querySelector('.collapsible');
     if (collapsible) {
