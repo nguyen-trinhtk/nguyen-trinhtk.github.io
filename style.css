@@ -243,6 +243,12 @@ p {
     text-decoration: underline;
 }
 
+.link:hover {
+    text-decoration: underline;
+    color: var(--primary-text-color);
+    cursor: pointer;
+}
+
 @media screen and (orientation: portrait) {
     .content {
         margin-top: 4.5rem;

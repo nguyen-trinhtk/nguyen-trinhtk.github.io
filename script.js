@@ -42,11 +42,20 @@ async function handleSection(id) {
                         contentSection.appendChild(paragraph);
                     });
                 } else if (id === 'projects') {
-                    ['serious', 'fun'].forEach(type => {
+                    ['serious', 'fun'].forEach((type, idx) => {
                         const section = document.createElement('div');
                         const intro = document.createElement('h3');
                         intro.textContent = data[type].intro;
                         section.appendChild(intro);
+
+                        if (idx === 0 && data[type].subintro) {
+                            const subintro = document.createElement('p');
+                            subintro.innerHTML = data[type].subintro;
+                            subintro.style.color = '#aaa';
+                            subintro.style.fontFamily = 'Prata';
+                            subintro.style.marginBottom = '1rem';
+                            section.appendChild(subintro);
+                        }
 
                         data[type].projects.forEach(project => {
                             const projectDiv = document.createElement('div');
