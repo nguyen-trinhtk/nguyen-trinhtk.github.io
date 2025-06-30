@@ -1,12 +1,13 @@
 {
     "about" : 
     {
-        "intro" : "hi, i'm Nguyen, a computer science student at drexel🫘", 
+        "intro" : "hi, i'm Nguyen, a computer science student at drexel 🫘", 
         "description" : [
             "⏾  either tinkering something or sipping oatmilk iced americano",
-            "At <a href='https://drexel.edu/cci/research/centers-labs/Applied%20Symbolic%20Computation%20Laboratory-ASYM/' target='_blank'>Drexel’s ASYM Lab</a>, I’m developing high-performing, memory-efficient C++ solvers in LINBOX to handle large, sparse matrix computations based on Wiedemann’s algorithm. Previously, I interned in robotics at Fulbright University Vietnam in 2023 and represented Vietnam at the 2022 World Robot Olympiad final.",
-            "I also love building my own projects, each with its own stories. The curated list can be found <u class='link' onclick=\"navigateTo('projects')\">here</u>.",
-            "Away from the screen, I love to put on my “Handy Manny” hat and work on my paper craft models, Pitchfork-reviewing a new music release, or check out a new 25th hobby (see 'Collections' for the full list). If not, I’m probably prepping some delicious <i>cơm tấm</i> :)",
+            "At <a href='https://drexel.edu/cci/research/centers-labs/Applied%20Symbolic%20Computation%20Laboratory-ASYM/' target='_blank'>Drexel’s ASYM Lab</a>, I’m working with Prof. Jeremy Johnson to develop high-performing, memory-efficient C++ solvers in LINBOX to handle large, sparse matrix computations based on Wiedemann’s algorithm.", 
+            "Previously, I interned in robotics at Fulbright University Vietnam in 2023 and represented Vietnam at the 2022 World Robot Olympiad final.",
+            "I also love building my own projects, each with its own stories. All can be found <u class='link' onclick=\"navigateTo('projects')\">here</u>.",
+            "Away from the screen, I love to put on my “Handy Manny” hat and work on my paper craft models, Pitchfork-reviewing a new music release, or try out a new <u class='link' onclick=\"navigateTo('thoughts/my-quite-long-list-of-hobbies')\">25th hobby</u>. If not, I’m probably prepping some delicious <i>cơm tấm</i> :)",
             "Find me through <a href='mailto:khanhnguyentrinhthi@gmail.com' target='_blank'>email</a>, <a href='https://www.linkedin.com/in/nguyenttk/' target='_blank'>LinkedIn</a>, or <a href='https://github.com/nguyen-trinhtk' target='_blank'>GitHub</a>, and check out <a href='https://nguyen-trinhtk.github.io/cv.html' target='_blank'>my CV</a>!"
         ]
     }, 
