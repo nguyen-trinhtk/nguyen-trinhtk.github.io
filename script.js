@@ -16,8 +16,9 @@ function navigateTo(section) {
 }
 
 window.addEventListener('popstate', (event) => {
-    const section = (event.state && event.state.section) || window.location.pathname.slice(1) || 'about';
-    handleSection(section);
+    if (event.state && event.state.section) {
+        handleSection(event.state.section);
+    }
 });
 
 async function handleSection(id) {
@@ -26,7 +27,6 @@ async function handleSection(id) {
         section.style.color = '#aaa';
     });
 
-    // Highlight sidebar for base section
     const baseId = id.split('/')[0];
     const activeId = document.getElementById(baseId);
     if (activeId) {
@@ -47,7 +47,6 @@ async function handleSection(id) {
         console.log('Fetched JSON:', text);
         const jsonData = JSON.parse(text);
 
-        // --- ALTERNATIVE THOUGHTS SLUG HANDLING ---
         if (id.startsWith('thoughts/')) {
             const slug = decodeURIComponent(id.slice('thoughts/'.length));
             const thoughtsArr = (jsonData.thoughts && jsonData.thoughts.thoughts) ? jsonData.thoughts.thoughts : [];
@@ -83,7 +82,6 @@ async function handleSection(id) {
             return;
         }
 
-        // Normal sections
         const data = jsonData[baseId];
         if (!data) {
             console.error(`No data found for id "${baseId}" in the JSON file.`);
@@ -191,8 +189,13 @@ async function handleSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const initialSection = window.location.pathname.slice(1) || 'about';
-    handleSection(initialSection);
+    if (window.location.pathname !== '/') {
+        window.location.replace('/');
+        return;
+    }
+    
+    history.replaceState({ section: 'about' }, '', '/');
+    handleSection('about');
 
     const collapsible = document.querySelector('.collapsible');
     if (collapsible) {
