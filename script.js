@@ -9,16 +9,15 @@ function slugify(text) {
 }
 
 function navigateTo(section) {
-    if (window.location.pathname !== '/' + section) {
-        history.pushState({ section }, '', '/' + section);
+    if (window.location.hash !== '#' + section) {
+        window.location.hash = section; // hashchange will trigger handleSection
     }
-    handleSection(section);
 }
 
-window.addEventListener('popstate', (event) => {
-    if (event.state && event.state.section) {
-        handleSection(event.state.section);
-    }
+// Handle browser navigation (back/forward)
+window.addEventListener('hashchange', () => {
+    const section = window.location.hash.slice(1); // remove '#'
+    handleSection(section || 'about');
 });
 
 async function handleSection(id) {
@@ -42,7 +41,7 @@ async function handleSection(id) {
     contentSection.style.opacity = '0';
 
     try {
-        const response = await fetch('/info.json');
+        const response = await fetch('./info.json');
         const text = await response.text();
         console.log('Fetched JSON:', text);
         const jsonData = JSON.parse(text);
@@ -189,15 +188,8 @@ async function handleSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    let initialSection = window.location.pathname.slice(1); // remove leading '/'
-    if (!initialSection) {
-        initialSection = 'about';
-        history.replaceState({ section: initialSection }, '', '/');
-    } else {
-        history.replaceState({ section: initialSection }, '', window.location.pathname);
-    }
-    handleSection(initialSection);
-
+    const initialHash = window.location.hash.slice(1) || 'about';
+    handleSection(initialHash);
 
     const collapsible = document.querySelector('.collapsible');
     if (collapsible) {
