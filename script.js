@@ -10,7 +10,16 @@ function slugify(text) {
 
 function navigateTo(section) {
     if (window.location.hash !== '#' + section) {
-        window.location.hash = section; // hashchange will trigger handleSection
+        window.location.hash = section;
+    }
+    
+    // Track page view in Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+            page_title: section,
+            page_location: window.location.href,
+            page_path: '/' + section
+        });
     }
 }
 
@@ -169,6 +178,12 @@ async function handleSection(id) {
                     thoughtItem.textContent = `${thought.title}`;
                     thoughtItem.style.cursor = 'pointer';
                     thoughtItem.onclick = () => {
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'thought_click', {
+                                thought_title: thought.title,
+                                thought_slug: slugify(thought.title)
+                            });
+                        }
                         navigateTo('thoughts/' + slugify(thought.title));
                     };
                     thoughtsList.appendChild(thoughtItem);
@@ -188,6 +203,15 @@ async function handleSection(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Track home page view
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+            page_title: 'home',
+            page_location: window.location.href,
+            page_path: '/'
+        });
+    }
+
     const initialHash = window.location.hash.slice(1) || 'about';
     handleSection(initialHash);
 
