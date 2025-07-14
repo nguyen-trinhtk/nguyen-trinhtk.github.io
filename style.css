@@ -112,7 +112,7 @@ a {
     margin-left: calc(20vw + 3rem);
     margin-right: 3rem;
     padding: 1rem;
-    overflow-y: scroll;
+    overflow-y: auto; /* <-- only show scrollbar when needed */
     height: 85vh;
     flex: 1;
     transition: opacity 0.3s ease-in-out;
