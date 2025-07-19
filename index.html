@@ -4,31 +4,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title id="title">nguyen trinh</title>
-        <link href="style.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
         <script src="script.js" defer></script>
         <link rel="icon" type="image/x-icon" href="./assets/beans.png">
     </head>
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4SD3NS6ZC"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-F4SD3NS6ZC');
-    </script> -->
     <body>
-        <div class="collapsible">
-            <h2 class="name">nguyen trinh <span class="subtle">/nwin tʃin/</span></h2>
-            <p>📞 who's this? </p>
-        </div>
-        <div class="main-container">
-            <div class="side-bar">
-                <div class="section" id="about"><span>about</span></div>
-                <div class="section" id="projects"><span>projects</span></div>
-                <div class="section" id="thoughts"><span>collections</span></div>
-            </div>
-            <div class="content" id = "content">
-            </div>
-        </div>
+        <div class="scroll-indicator"></div>
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="#about" data-section="about">about</a></li>
+                <li><a href="#projects" data-section="projects">projects</a></li>
+                <li><a href="#random" data-section="random">random</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="about" class="section">
+                <h1>hi <em>✌️</em>, i'm <em>Nguyen Trinh*</em>,</h1>
+                <h1>a <em>computer science</em> student</h1>
+                <h1>excitedly exploring</h1>
+                <h1><code>fullstack dev</code>, <code>computer vision</code></h1>
+                <h1>and <code>applied linear algebra</code>&nbsp;&nbsp;.</h1>
+                <br><br>
+                <h3>*i'm also findable on <a href="https://www.linkedin.com/in/nguyenttk/" target="_blank">LinkedIn</a> and <a href="https://github.com/nguyen-trinhtk" target="_blank">GitHub</a>.</h3>
+            </section>
+
+            <section id="random" class="section">
+            </section>
+        </main>
     </body>
 </html>
