@@ -194,7 +194,7 @@ main {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-style: italic;
     word-spacing: 0.25rem;
     color: var(--text-color);
@@ -216,7 +216,7 @@ h1 {
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -583,7 +583,7 @@ h1:first-of-type em:nth-of-type(2):hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 1rem 2rem;
   text-align: center;
   cursor: pointer;
@@ -607,20 +607,11 @@ h1:first-of-type em:nth-of-type(2):hover::after {
   align-items: center;
 }
 .project-box.expanded .project-modal-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 0.7rem;
   margin-left: 0;
   width: 100%;
   justify-content: center;
-}
-
-.project-modal-github-label {
-  display: none;
-  font-size: 1.1rem;
-  font-family: var(--code-font-family);
-  color: var(--accent-color);
-  margin-bottom: 0.3rem;
-  text-align: center;
 }
 
 @media (max-width: 480px) {
@@ -739,9 +730,9 @@ h1:first-of-type em:nth-of-type(2):hover::after {
   background: var(--background-color);
   border: 1.5px solid var(--text-color);
   z-index: 2002;
-  width: 18rem;
-  height: 25rem;
-  padding: 3rem 2.5rem 4rem 2.5rem;
+  width: 45vh;
+  height: 70vh;
+  padding: 2rem 1.5rem 3rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -755,15 +746,13 @@ h1:first-of-type em:nth-of-type(2):hover::after {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 1.5rem;
-  font-weight: 500;
   margin-bottom: 1.5rem;
   margin-left: 0.5rem;
 }
 
 
 .project-modal-link {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: var(--text-color);
   text-decoration: underline;
   font-style: normal;
@@ -796,21 +785,23 @@ h1:first-of-type em:nth-of-type(2):hover::after {
   display: block;
 }
 .project-modal-desc {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
   text-align: left;
   color: var(--text-color);
 }
 .project-modal-skills {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.2rem;
 }
 .project-modal-skills code {
-  font-size: 0.95rem;
+  font-size: 0.7rem;
   background: var(--highlight-color);
   color: var(--text-color);
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem;
   font-family: var(--code-font-family);
   font-weight: 300;
 }
@@ -845,4 +836,29 @@ h1:first-of-type em:nth-of-type(2):hover::after {
 .section-title {
     text-align: center;
     font-style: normal;
+}
+
+/* Float from bottom up, fade in animation */
+
+.float-fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: floatFadeIn 0.8s cubic-bezier(0.33,1,0.68,1) forwards;
+  animation-play-state: paused;
+}
+
+.float-fade-in.float-fade-in-visible {
+  animation-play-state: running;
+}
+
+
+@keyframes floatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

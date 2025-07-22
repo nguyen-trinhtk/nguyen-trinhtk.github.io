@@ -1,4 +1,5 @@
 // Tooltip for project-box that follows mouse, only one tooltip in DOM
+
 document.addEventListener('DOMContentLoaded', function() {
   // Tooltip logic
   let tooltip = document.getElementById('project-tooltip');
@@ -42,6 +43,52 @@ document.addEventListener('DOMContentLoaded', function() {
     box.addEventListener('mouseleave', hideTooltip);
   });
 
+  // Fade in on scroll for .float-fade-in elements
+  const floatEls = document.querySelectorAll('.float-fade-in');
+  floatEls.forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(40px)';
+    el.classList.remove('float-fade-in-visible');
+    el.style.animationDelay = '';
+  });
+
+  // About section: staggered fade-in
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    const aboutEls = aboutSection.querySelectorAll('.float-fade-in');
+    const observerAbout = new window.IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          aboutEls.forEach((el, i) => {
+            setTimeout(() => {
+              el.classList.add('float-fade-in-visible');
+            }, i * 180);
+          });
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+    if (aboutEls.length) {
+      observerAbout.observe(aboutEls[0]);
+    }
+  }
+
+  // Other .float-fade-in elements (not in #about): fade in individually
+  const aboutElsSet = new Set(aboutSection ? aboutSection.querySelectorAll('.float-fade-in') : []);
+  floatEls.forEach(el => {
+    if (!aboutElsSet.has(el)) {
+      const observer = new window.IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('float-fade-in-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(el);
+    }
+  });
+
   // Modal logic
   const modalRoot = document.getElementById('project-modal-root');
 
@@ -81,6 +128,20 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('info.json')
     .then(res => res.json())
     .then(projectData => {
+      // Set project-box innerHTML to title + emoji
+      document.querySelectorAll('.project-box.float-fade-in').forEach((box, i) => {
+        const idx = box.getAttribute('data-project-idx');
+        if (idx !== null && projectData[idx]) {
+          const emoji = projectData[idx].emoji ? `<span class="project-emoji">${projectData[idx].emoji}</span>` : '';
+          box.innerHTML = projectData[idx].title + (emoji ? ' ' + emoji : '');
+        }
+      });
+
+      // Optional: ensure emoji always has left margin for visual spacing
+      const style = document.createElement('style');
+      style.textContent = `.project-emoji { margin-left: 0.3em; }`;
+      document.head.appendChild(style);
+
       const isMobile = () => window.matchMedia('(max-width: 600px)').matches;
       const boxes = document.querySelectorAll('.project-box');
       let expandedBox = null;

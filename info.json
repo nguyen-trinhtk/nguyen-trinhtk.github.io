@@ -1,64 +1,73 @@
 [
   {
-    "title": "robot-project",
-    "github": "https://github.com/nguyen-trinhtk/robot-project",
-    "image": "https://placehold.co/400x300?text=robot-project",
+    "title": "CLI Wiedemann Analyzer",
+    "emoji": "📊",
+    "github": "https://github.com/nguyen-trinhtk/wiedemann-analyzer",
+    "image": "/assets/solver.png",
     "desc": "A robotics project exploring autonomous navigation and control.",
     "skills": ["#python", "#ros", "#robotics", "#cv"]
   },
   {
-    "title": "vision-app",
-    "github": "https://github.com/nguyen-trinhtk/vision-app",
+    "title": "The Triangle's Website",
+    "emoji": "📰",
+    "github": "https://github.com/DrexelTriangle/Scalene",
     "image": "https://placehold.co/400x300?text=vision-app",
     "desc": "A computer vision app for real-time image processing.",
     "skills": ["#python", "#opencv", "#ml", "#realtime"]
   },
   {
-    "title": "linear-algebra-toolkit",
-    "github": "https://github.com/nguyen-trinhtk/linear-algebra-toolkit",
-    "image": "https://placehold.co/400x300?text=linear-algebra-toolkit",
+    "title": "Trash-Collecting Robot",
+    "emoji": "🤖",
+    "github": "https://github.com/nguyen-trinhtk/PII-robot",
+    "image": "/assets/robot.png",
     "desc": "Toolkit for visualizing and solving linear algebra problems.",
     "skills": ["#js", "#math", "#visualization", "#linearalgebra"]
   },
   {
-    "title": "fullstack-template",
-    "github": "https://github.com/nguyen-trinhtk/fullstack-template",
-    "image": "https://placehold.co/400x300?text=fullstack-template",
-    "desc": "A modern fullstack web app template.",
-    "skills": ["#react", "#node", "#express", "#mongodb"]
-  },
-  {
-    "title": "beans-reminder",
-    "github": "https://github.com/nguyen-trinhtk/beans-reminder",
-    "image": "https://placehold.co/400x300?text=beans-reminder",
+    "title": "Pill Reminder",
+    "emoji": "💊",
+    "github": "https://github.com/nguyen-trinhtk/pill-reminder",
+    "image": "/assets/pillreminder.png",
     "desc": "A simple reminder app for daily tasks.",
     "skills": ["#flutter", "#mobile", "#reminder"]
   },
   {
-    "title": "discord-bot",
-    "github": "https://github.com/nguyen-trinhtk/discord-bot",
-    "image": "https://placehold.co/400x300?text=discord-bot",
+    "title": "NeoPal",
+    "emoji": "🔎",
+    "github": "https://github.com/nguyen-trinhtk/NeoPAL",
+    "image": "/assets/pal.png",
+    "desc": "A modern fullstack web app template.",
+    "skills": ["#react", "#node", "#express", "#mongodb"]
+  },
+  {
+    "title": "Drexel Diet App",
+    "emoji": "🥘",
+    "github": "https://github.com/nguyen-trinhtk/drexel-diet-app",
+    "image": "/assets/dining.png",
     "desc": "A multipurpose Discord bot for server automation.",
     "skills": ["#js", "#discord", "#bot", "#automation"]
   },
   {
-    "title": "spotify-visualizer",
-    "github": "https://github.com/nguyen-trinhtk/spotify-visualizer",
-    "image": "https://placehold.co/400x300?text=spotify-visualizer",
+    "title": "Virtual Monkey FSM",
+    "emoji": "🙊",
+    "github": "https://github.com/nguyen-trinhtk/cs164-virtual-pet",
+    "image": "/assets/tuk.png",
     "desc": "Visualize your Spotify listening habits.",
     "skills": ["#js", "#spotify", "#visualization"]
   },
   {
-    "title": "pal-ai",
-    "github": "https://github.com/nguyen-trinhtk/pal-ai",
-    "image": "https://placehold.co/400x300?text=pal-ai",
+    "title": "Euphoniter - Music blog",
+    "emoji": "🪗",
+    "github": "https://github.com/nguyen-trinhtk/euphoniter",
+    "image": "/assets/euphoniter.png",
     "desc": "AI-powered personal assistant.",
     "skills": ["#python", "#ai", "#assistant"]
   },
   {
-    "title": "turtle-sim",
-    "github": "https://github.com/nguyen-trinhtk/turtle-sim",
-    "image": "https://placehold.co/400x300?text=turtle-sim",
+    "title": "Mr. Discipline Discord Bot",
+    "emoji": "👾",
+    "github": "https://github.com/nguyen-trinhtk/mr-discipline",
+    "image": "/assets/discord.png",
     "desc": "A turtle graphics simulator for learning programming.",
     "skills": ["#python", "#graphics", "#education"]
   }
