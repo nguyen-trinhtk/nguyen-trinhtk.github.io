@@ -59,7 +59,7 @@ body {
 
 @media (max-width: 480px) {
     body {
-        margin: 0 1rem;
+        margin: 1rem 2.5rem;
     }
 }
 
@@ -178,7 +178,7 @@ main {
 }
 
 .section {
-    padding-bottom: 10rem;
+    padding-bottom: 6rem;
 }
 
 @media (max-width: 768px) {
@@ -558,4 +558,291 @@ h1:first-of-type em:nth-of-type(2):hover::after {
     75% {
         transform: translateY(-50%) scale(0.9);
     }
+}
+
+/* Minimal project grid: 9 bordered boxes, only project title */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.project-box {
+  border: 1.5px solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+}
+
+.project-box.expanded {
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--background-color);
+  z-index: 10;
+  padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+}
+
+.project-box-info {
+  margin-top: 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.project-box.expanded .project-modal-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+  margin-left: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.project-modal-github-label {
+  display: none;
+  font-size: 1.1rem;
+  font-family: var(--code-font-family);
+  color: var(--accent-color);
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .project-box.expanded .project-modal-title {
+    display: none;
+  }
+  .project-modal-github-label {
+    display: block;
+  }
+}
+.project-box.expanded .project-modal-link {
+  font-size: 1.2rem;
+}
+.project-box.expanded .project-modal-img-wrap {
+  width: 100%;
+  aspect-ratio: 2/1;
+  background: #eee;
+  border: 1px solid var(--text-color);
+  margin-bottom: 0.7rem;
+  margin-top: 0.2rem;
+}
+.project-box.expanded .project-modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-box.expanded .project-modal-desc {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  text-align: left;
+  color: var(--text-color);
+  width: 100%;
+}
+.project-box.expanded .project-modal-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: flex-start;
+  width: 100%;
+}
+.project-box.expanded .project-modal-skills code {
+  font-size: 0.85rem;
+  background: var(--highlight-color);
+  color: var(--text-color);
+  padding: 0.13rem 0.4rem;
+  margin: 0;
+  font-family: var(--code-font-family);
+}
+.project-box.expanded .project-modal-skills code:hover {
+  background: var(--accent-color);
+  color: var(--background-color);
+}
+
+@media (max-width: 600px) {
+  .project-box {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    z-index: 1;
+  }
+  .project-box {
+    overflow: hidden;
+  }
+  .project-box.expanded {
+    height: auto;
+    overflow: visible;
+    padding: 2rem;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--background-color);
+  }
+}
+
+.project-box:hover {
+    background-color: #f2f2f2;
+}
+
+.project-box a {
+    text-decoration: none;
+    font-style: normal;
+}
+
+.project-box a:hover {
+  text-decoration: underline;
+}
+
+
+.modal-open {
+  overflow: hidden;
+}
+
+#project-modal-root {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.project-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 2001;
+  pointer-events: auto;
+}
+
+
+.project-modal-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background-color);
+  border: 1.5px solid var(--text-color);
+  z-index: 2002;
+  width: 18rem;
+  height: 25rem;
+  padding: 3rem 2.5rem 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modal-pop 0.18s cubic-bezier(.5,1.8,.7,1) 1;
+    pointer-events: auto;
+    overflow-y: hidden;
+}
+
+.project-modal-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+
+.project-modal-link {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  text-decoration: underline;
+  font-style: normal;
+  font-family: var(--font-family);
+  margin-left: 0;
+  cursor: pointer;
+  transition: color 0.1s;
+}
+
+.project-modal-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.project-modal-img-wrap {
+  width: 100%;
+  aspect-ratio: 2/1;
+  background: #eee;
+  border: 1px solid var(--text-color);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-modal-desc {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: var(--text-color);
+}
+.project-modal-skills {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.project-modal-skills code {
+  font-size: 0.95rem;
+  background: var(--highlight-color);
+  color: var(--text-color);
+  padding: 0.2rem 0.6rem;
+  font-family: var(--code-font-family);
+  font-weight: 300;
+}
+
+.project-modal-skills code:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 2003;
+  transition: color 0.1s;
+}
+.project-modal-close:hover {
+  color: var(--accent-color);
+}
+
+@keyframes modal-pop {
+  0% { opacity: 0; transform: translate(-50%, -48%) scale(0.98); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.section-title {
+    text-align: center;
+    font-style: normal;
 }

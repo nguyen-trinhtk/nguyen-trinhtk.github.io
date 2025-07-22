@@ -1,0 +1,65 @@
+[
+  {
+    "title": "robot-project",
+    "github": "https://github.com/nguyen-trinhtk/robot-project",
+    "image": "https://placehold.co/400x300?text=robot-project",
+    "desc": "A robotics project exploring autonomous navigation and control.",
+    "skills": ["#python", "#ros", "#robotics", "#cv"]
+  },
+  {
+    "title": "vision-app",
+    "github": "https://github.com/nguyen-trinhtk/vision-app",
+    "image": "https://placehold.co/400x300?text=vision-app",
+    "desc": "A computer vision app for real-time image processing.",
+    "skills": ["#python", "#opencv", "#ml", "#realtime"]
+  },
+  {
+    "title": "linear-algebra-toolkit",
+    "github": "https://github.com/nguyen-trinhtk/linear-algebra-toolkit",
+    "image": "https://placehold.co/400x300?text=linear-algebra-toolkit",
+    "desc": "Toolkit for visualizing and solving linear algebra problems.",
+    "skills": ["#js", "#math", "#visualization", "#linearalgebra"]
+  },
+  {
+    "title": "fullstack-template",
+    "github": "https://github.com/nguyen-trinhtk/fullstack-template",
+    "image": "https://placehold.co/400x300?text=fullstack-template",
+    "desc": "A modern fullstack web app template.",
+    "skills": ["#react", "#node", "#express", "#mongodb"]
+  },
+  {
+    "title": "beans-reminder",
+    "github": "https://github.com/nguyen-trinhtk/beans-reminder",
+    "image": "https://placehold.co/400x300?text=beans-reminder",
+    "desc": "A simple reminder app for daily tasks.",
+    "skills": ["#flutter", "#mobile", "#reminder"]
+  },
+  {
+    "title": "discord-bot",
+    "github": "https://github.com/nguyen-trinhtk/discord-bot",
+    "image": "https://placehold.co/400x300?text=discord-bot",
+    "desc": "A multipurpose Discord bot for server automation.",
+    "skills": ["#js", "#discord", "#bot", "#automation"]
+  },
+  {
+    "title": "spotify-visualizer",
+    "github": "https://github.com/nguyen-trinhtk/spotify-visualizer",
+    "image": "https://placehold.co/400x300?text=spotify-visualizer",
+    "desc": "Visualize your Spotify listening habits.",
+    "skills": ["#js", "#spotify", "#visualization"]
+  },
+  {
+    "title": "pal-ai",
+    "github": "https://github.com/nguyen-trinhtk/pal-ai",
+    "image": "https://placehold.co/400x300?text=pal-ai",
+    "desc": "AI-powered personal assistant.",
+    "skills": ["#python", "#ai", "#assistant"]
+  },
+  {
+    "title": "turtle-sim",
+    "github": "https://github.com/nguyen-trinhtk/turtle-sim",
+    "image": "https://placehold.co/400x300?text=turtle-sim",
+    "desc": "A turtle graphics simulator for learning programming.",
+    "skills": ["#python", "#graphics", "#education"]
+  }
+]
