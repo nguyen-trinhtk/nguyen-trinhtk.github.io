@@ -154,9 +154,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
+
+      // Preload all project images
+      projectData.forEach(project => {
+        if (project.image) {
+          const img = new window.Image();
+          img.src = project.image;
+        }
+      });
+
       const isMobile = () => window.matchMedia('(max-width: 600px)').matches;
       const boxes = document.querySelectorAll('.project-box');
       let expandedBox = null;
+
+      // Desktop-only: add tooltip and mouse tracking for project boxes
+      if (!isMobile()) {
+        boxes.forEach(box => {
+          box.setAttribute('data-tooltip', 'Click for details');
+          box.addEventListener('mousemove', function(e) {
+            document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+            document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+          });
+        });
+      }
 
       function renderBoxInfo(box, project) {
         // Remove any existing expanded info

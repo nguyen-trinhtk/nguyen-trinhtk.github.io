@@ -146,7 +146,7 @@ h1 {
   font-size: 2rem;
   font-style: italic;
   word-spacing: 0.25rem;
-  margin: 0.5rem;
+  margin: 1rem 0;
 }
 h2 {
   font-size: 2rem;
@@ -322,7 +322,7 @@ em {
 
 @media (max-width: 480px) {
     .project-detail-desc {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
         margin-bottom: 2rem;
         text-align: left;
         width: 100%;
@@ -591,10 +591,13 @@ h1:first-of-type em:nth-of-type(2):hover::after {
   h3 { font-size: 1.1rem; }
 }
 @media (max-width: 480px) {
-  h1 { font-size: 1.3rem; word-spacing: 0.1rem; margin-bottom: 0.5rem; }
+  h1 { font-size: 1.3rem; margin: 0; margin-bottom: 0.8rem; }
   h2 { font-size: 1.25rem;}
   h3 { font-size: 1rem; }
-  code { font-size: 0.8rem;}
+  .project-box {
+    font-size: 1.1rem;
+  }
+  code { font-size: 0.9rem; margin: 0; margin-bottom: 0.8rem;}
   ::root {
     --emoji-font-size: 2rem;
   }
