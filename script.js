@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const imgLink = card.querySelector('.project-detail-img-link');
     const img = imgLink.querySelector('img');
     imgLink.style.opacity = '0';
-    imgLink.style.transition = 'opacity 0.1s';
+    // imgLink.style.transition = 'opacity 0.1s';
     const descEl = card.querySelector('.project-detail-desc');
     const skillsEl = card.querySelector('.project-detail-skills');
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    function typewriteDescLines(el, desc, speed = 12, lineDelay = 180) {
+    function typewriteDescLines(el, desc, speed = 8, lineDelay = 180) {
       return new Promise(async resolve => {
         el.innerHTML = '';
         const lines = desc.split(/\r?\n/);
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    function typewriteSkills(el, skills, speed = 16, skillDelay = 60) {
+    function typewriteSkills(el, skills, speed = 8, skillDelay = 60) {
       return new Promise(async resolve => {
         el.innerHTML = '';
         for (let i = 0; i < skills.length; i++) {
@@ -134,11 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Sequence: title -> image -> desc (line by line) -> skills
     (async function() {
-      await typewriteText(titleEl, project.title, 20);
+      await typewriteText(titleEl, project.title, 16);
       imgLink.style.display = '';
-      setTimeout(() => { imgLink.style.opacity = '1'; }, 10); // trigger transition
-      await typewriteDescLines(descEl, project.desc, 10, 120);
-      await typewriteSkills(skillsEl, project.skills, 16, 40);
+      setTimeout(() => { imgLink.style.opacity = '1'; }, 8); // trigger transition
+      await typewriteDescLines(descEl, project.desc, 8, 60);
+      await typewriteSkills(skillsEl, project.skills, 8, 20);
     })();
   }
 
