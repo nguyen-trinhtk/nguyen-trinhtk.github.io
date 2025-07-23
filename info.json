@@ -4,71 +4,71 @@
     "emoji": "📊",
     "github": "https://github.com/nguyen-trinhtk/wiedemann-analyzer",
     "image": "/assets/solver.png",
-    "desc": "A robotics project exploring autonomous navigation and control.",
-    "skills": ["#python", "#ros", "#robotics", "#cv"]
+    "desc": "A command-line interface (CLI) tool that solves and analyzes large, sparse linear systems via Wiedemann's algorithm in LINBOX template library.",
+    "skills": ["#c++", "#make", "#bash", "#matplotlib"]
   },
   {
     "title": "The Triangle's Website",
     "emoji": "📰",
     "github": "https://github.com/DrexelTriangle/Scalene",
-    "image": "https://placehold.co/400x300?text=vision-app",
-    "desc": "A computer vision app for real-time image processing.",
-    "skills": ["#python", "#opencv", "#ml", "#realtime"]
+    "image": "https://placehold.co/400x300?text=The-Triangle",
+    "desc": "A modern, responsive news platform for The Triangle (a student-run publishing organization), with custom-built comment system and admin panel.",
+    "skills": ["#react", "#astro", "#mysql", "#mariadb"]
   },
   {
     "title": "Trash-Collecting Robot",
     "emoji": "🤖",
     "github": "https://github.com/nguyen-trinhtk/PII-robot",
     "image": "/assets/robot.png",
-    "desc": "Toolkit for visualizing and solving linear algebra problems.",
-    "skills": ["#js", "#math", "#visualization", "#linearalgebra"]
+    "desc": "A trash-collecting robot capable of autonomous navigation, trash identification, obstacle avoidance. My team's project for the research internship at Fulbright University Vietnam.",
+    "skills": ["#opencv", "#yolo", "#ros", "#ubuntu"]
   },
   {
     "title": "Pill Reminder",
     "emoji": "💊",
     "github": "https://github.com/nguyen-trinhtk/pill-reminder",
     "image": "/assets/pillreminder.png",
-    "desc": "A simple reminder app for daily tasks.",
-    "skills": ["#flutter", "#mobile", "#reminder"]
+    "desc": "An integrated hardware-software prescription management system featuring a Flutter-based mobile app and an ESP32-powered smart dispenser.",
+    "skills": ["#flutter", "ocr", "#flask", "mongodb", "#aws", "#esp32"]
   },
   {
     "title": "NeoPal",
     "emoji": "🔎",
     "github": "https://github.com/nguyen-trinhtk/NeoPAL",
     "image": "/assets/pal.png",
-    "desc": "A modern fullstack web app template.",
-    "skills": ["#react", "#node", "#express", "#mongodb"]
+    "desc": "An iOS app that leverages AR and CoreML to correct colors for colorblind users in real time with FastAPI backend for personalized accessibility threshold.",
+    "skills": ["#swift", "#coreml", "#fastapi", "#ar"]
   },
   {
     "title": "Drexel Diet App",
     "emoji": "🥘",
     "github": "https://github.com/nguyen-trinhtk/drexel-diet-app",
     "image": "/assets/dining.png",
-    "desc": "A multipurpose Discord bot for server automation.",
-    "skills": ["#js", "#discord", "#bot", "#automation"]
+    "desc": "A cross-platform Flutter app that helps Drexel students plan meals and meet dietary goals using live data from campus dining halls.",
+    "skills": ["#flutter", "#firebase", "#firestore", "#vultr"]
   },
   {
     "title": "Virtual Monkey FSM",
     "emoji": "🙊",
     "github": "https://github.com/nguyen-trinhtk/cs164-virtual-pet",
     "image": "/assets/tuk.png",
-    "desc": "Visualize your Spotify listening habits.",
-    "skills": ["#js", "#spotify", "#visualization"]
+    "desc": "A finite-state machine based interactive virtual pet simulator. End-of-course project for Intro to Computer Science, originally programmed and compiled in Tranquility (course's language).",
+    "skills": ["#html", "#css", "#js", "#tranquility"]
   },
   {
     "title": "Euphoniter - Music blog",
     "emoji": "🪗",
     "github": "https://github.com/nguyen-trinhtk/euphoniter",
     "image": "/assets/euphoniter.png",
-    "desc": "AI-powered personal assistant.",
-    "skills": ["#python", "#ai", "#assistant"]
+    "desc": "A responsive music blog platform for sharing music-related content. It's one of my passion project during early high school, and is also my first exposure to web development.",
+    "skills": ["#html", "#css", "#js"]
   },
   {
     "title": "Mr. Discipline Discord Bot",
     "emoji": "👾",
     "github": "https://github.com/nguyen-trinhtk/mr-discipline",
     "image": "/assets/discord.png",
-    "desc": "A turtle graphics simulator for learning programming.",
-    "skills": ["#python", "#graphics", "#education"]
+    "desc": "A Discord bot that supports studying tasking, time tracking, music playback, and staying focused. Another passion project for me and my friends.",
+    "skills": ["#python", "#discord-api", "#spotify-api"]
   }
 ]

@@ -1,48 +1,4 @@
-// Tooltip for project-box that follows mouse, only one tooltip in DOM
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Tooltip logic
-  let tooltip = document.getElementById('project-tooltip');
-  if (!tooltip) {
-    tooltip = document.createElement('div');
-    tooltip.id = 'project-tooltip';
-    tooltip.textContent = 'click for details';
-    tooltip.style.position = 'fixed';
-    tooltip.style.pointerEvents = 'none';
-    tooltip.style.zIndex = '9999';
-    tooltip.style.fontFamily = 'IBM Plex Mono, monospace';
-    tooltip.style.fontSize = '0.8rem';
-    tooltip.style.background = getComputedStyle(document.documentElement).getPropertyValue('--text-color') || '#555';
-    tooltip.style.color = getComputedStyle(document.documentElement).getPropertyValue('--background-color') || '#FFFBF2';
-    tooltip.style.padding = '0.5rem 1rem';
-    tooltip.style.whiteSpace = 'nowrap';
-    tooltip.style.opacity = '0';
-    document.body.appendChild(tooltip);
-  }
-
-  function showTooltip(e) {
-    tooltip.style.opacity = '1';
-    moveTooltip(e);
-  }
-  function moveTooltip(e) {
-    const offset = 16;
-    let x = e.clientX + offset;
-    let y = e.clientY + offset;
-    const rect = tooltip.getBoundingClientRect();
-    if (x + rect.width > window.innerWidth) x = window.innerWidth - rect.width - 8;
-    if (y + rect.height > window.innerHeight) y = window.innerHeight - rect.height - 8;
-    tooltip.style.left = x + 'px';
-    tooltip.style.top = y + 'px';
-  }
-  function hideTooltip() {
-    tooltip.style.opacity = '0';
-  }
-  document.querySelectorAll('.project-box').forEach(box => {
-    box.addEventListener('mouseenter', showTooltip);
-    box.addEventListener('mousemove', moveTooltip);
-    box.addEventListener('mouseleave', hideTooltip);
-  });
-
   // Fade in on scroll for .float-fade-in elements
   const floatEls = document.querySelectorAll('.float-fade-in');
   floatEls.forEach(el => {
@@ -90,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Modal logic
-  const modalRoot = document.getElementById('project-modal-root');
+  const modalRoot = document.getElementById('project-detail-root');
 
   function closeModal() {
     if (modalRoot) modalRoot.innerHTML = '';
@@ -100,28 +56,90 @@ document.addEventListener('DOMContentLoaded', function() {
   function renderModal(project) {
     if (!modalRoot) return;
     modalRoot.innerHTML = `
-      <div class="project-modal-overlay"></div>
-      <div class="project-modal-card">
-        <button class="project-modal-close" aria-label="Close">&times;</button>
-        <div class="project-modal-title">
-          <a href="${project.github}" target="_blank" class="project-modal-link" title="GitHub repo" rel="noopener">${project.title}</a>
+      <div class="project-detail-overlay"></div>
+      <div class="project-detail-card">
+        <button class="project-detail-close" aria-label="Close">&times;</button>
+        <div class="project-detail-title">
+          <a href="${project.github}" target="_blank" class="project-detail-link" title="GitHub repo" rel="noopener"><span class="typewrite-title"></span></a>
         </div>
-        <a href="${project.github}" target="_blank" rel="noopener" class="project-modal-img-link">
-          <div class="project-modal-img-wrap">
+        <a href="${project.github}" target="_blank" rel="noopener" class="project-detail-img-link" style="display:none;">
+          <div class="project-detail-img-wrap">
             <img src="${project.image}" alt="${project.title} screenshot" />
           </div>
         </a>
-        <div class="project-modal-desc">${project.desc}</div>
+        <div class="project-detail-desc"></div>
         <div style="flex:1 1 auto;"></div>
-        <div class="project-modal-skills">
-          ${project.skills.map(skill => `<code>${skill}</code>`).join(' ')}
-        </div>
+        <div class="project-detail-skills"></div>
       </div>
     `;
     document.body.classList.add('modal-open');
     // Close logic
-    modalRoot.querySelector('.project-modal-close').onclick = closeModal;
-    modalRoot.querySelector('.project-modal-overlay').onclick = closeModal;
+    modalRoot.querySelector('.project-detail-close').onclick = closeModal;
+    modalRoot.querySelector('.project-detail-overlay').onclick = closeModal;
+
+    // Typewriting effect logic
+    const card = modalRoot.querySelector('.project-detail-card');
+    const titleEl = card.querySelector('.typewrite-title');
+    const imgLink = card.querySelector('.project-detail-img-link');
+    const img = imgLink.querySelector('img');
+    imgLink.style.opacity = '0';
+    imgLink.style.transition = 'opacity 0.1s';
+    const descEl = card.querySelector('.project-detail-desc');
+    const skillsEl = card.querySelector('.project-detail-skills');
+
+    function typewriteText(el, text, speed = 8) {
+      return new Promise(resolve => {
+        let i = 0;
+        function type() {
+          el.textContent = text.slice(0, i);
+          if (i < text.length) {
+            i++;
+            setTimeout(type, speed);
+          } else {
+            resolve();
+          }
+        }
+        type();
+      });
+    }
+
+    function typewriteDescLines(el, desc, speed = 12, lineDelay = 180) {
+      return new Promise(async resolve => {
+        el.innerHTML = '';
+        const lines = desc.split(/\r?\n/);
+        for (let i = 0; i < lines.length; i++) {
+          const lineSpan = document.createElement('span');
+          el.appendChild(lineSpan);
+          await typewriteText(lineSpan, lines[i], speed);
+          if (i < lines.length - 1) el.appendChild(document.createElement('br'));
+          await new Promise(r => setTimeout(r, lineDelay));
+        }
+        resolve();
+      });
+    }
+
+    function typewriteSkills(el, skills, speed = 16, skillDelay = 60) {
+      return new Promise(async resolve => {
+        el.innerHTML = '';
+        for (let i = 0; i < skills.length; i++) {
+          const code = document.createElement('code');
+          el.appendChild(code);
+          await typewriteText(code, skills[i], speed);
+          if (i < skills.length - 1) el.appendChild(document.createTextNode(' '));
+          await new Promise(r => setTimeout(r, skillDelay));
+        }
+        resolve();
+      });
+    }
+
+    // Sequence: title -> image -> desc (line by line) -> skills
+    (async function() {
+      await typewriteText(titleEl, project.title, 20);
+      imgLink.style.display = '';
+      setTimeout(() => { imgLink.style.opacity = '1'; }, 10); // trigger transition
+      await typewriteDescLines(descEl, project.desc, 10, 120);
+      await typewriteSkills(skillsEl, project.skills, 16, 40);
+    })();
   }
 
   // Fetch project data from info.json and attach modal/expand events
@@ -132,15 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.project-box.float-fade-in').forEach((box, i) => {
         const idx = box.getAttribute('data-project-idx');
         if (idx !== null && projectData[idx]) {
-          const emoji = projectData[idx].emoji ? `<span class="project-emoji">${projectData[idx].emoji}</span>` : '';
-          box.innerHTML = projectData[idx].title + (emoji ? ' ' + emoji : '');
+          box.innerHTML = projectData[idx].title + '   ' + projectData[idx].emoji;
         }
       });
-
-      // Optional: ensure emoji always has left margin for visual spacing
-      const style = document.createElement('style');
-      style.textContent = `.project-emoji { margin-left: 0.3em; }`;
-      document.head.appendChild(style);
 
       const isMobile = () => window.matchMedia('(max-width: 600px)').matches;
       const boxes = document.querySelectorAll('.project-box');
@@ -168,27 +180,93 @@ document.addEventListener('DOMContentLoaded', function() {
         expandedBox = box;
         const infoDiv = document.createElement('div');
         infoDiv.className = 'project-box-info';
+        const emojiHTML = project.emoji ? `<span class='project-detail-emoji'>${project.emoji}</span>` : '';
         infoDiv.innerHTML = `
-          <div class="project-modal-title">
-            <a href="${project.github}" target="_blank" class="project-modal-link" title="GitHub repo" rel="noopener">${project.title}</a>
+          <div class="project-detail-title">
+            <a href="${project.github}" target="_blank" class="project-detail-link" title="GitHub repo" rel="noopener"><span class="typewrite-title"></span>${emojiHTML ? ' ' + emojiHTML : ''}</a>
           </div>
-          <a href="${project.github}" target="_blank" rel="noopener" class="project-modal-img-link">
-            <div class="project-modal-img-wrap">
+          <a href="${project.github}" target="_blank" rel="noopener" class="project-detail-img-link" style="display:none;">
+            <div class="project-detail-img-wrap">
               <img src="${project.image}" alt="${project.title} screenshot" />
             </div>
           </a>
-          <div class="project-modal-desc">${project.desc}</div>
-          <div class="project-modal-skills">
-            ${project.skills.map(skill => `<code>${skill}</code>`).join(' ')}
-          </div>
+          <div class="project-detail-desc"></div>
+          <div class="project-detail-skills"></div>
         `;
         box.appendChild(infoDiv);
+
+        // Typewriting effect logic
+        const titleEl = infoDiv.querySelector('.typewrite-title');
+        const imgLink = infoDiv.querySelector('.project-detail-img-link');
+        const img = imgLink.querySelector('img');
+        imgLink.style.opacity = '0';
+        imgLink.style.transition = 'opacity 0.1s';
+        const descEl = infoDiv.querySelector('.project-detail-desc');
+        const skillsEl = infoDiv.querySelector('.project-detail-skills');
+
+        function typewriteText(el, text, speed = 16) {
+          return new Promise(resolve => {
+            let i = 0;
+            function type() {
+              el.textContent = text.slice(0, i);
+              if (i < text.length) {
+                i++;
+                setTimeout(type, speed);
+              } else {
+                resolve();
+              }
+            }
+            type();
+          });
+        }
+
+        function typewriteDescLines(el, desc, speed = 16, lineDelay = 120) {
+          return new Promise(async resolve => {
+            el.innerHTML = '';
+            const lines = desc.split(/\r?\n/);
+            for (let i = 0; i < lines.length; i++) {
+              const lineSpan = document.createElement('span');
+              el.appendChild(lineSpan);
+              await typewriteText(lineSpan, lines[i], speed);
+              if (i < lines.length - 1) el.appendChild(document.createElement('br'));
+              await new Promise(r => setTimeout(r, lineDelay));
+            }
+            resolve();
+          });
+        }
+
+        function typewriteSkills(el, skills, speed = 16, skillDelay = 60) {
+          return new Promise(async resolve => {
+            el.innerHTML = '';
+            for (let i = 0; i < skills.length; i++) {
+              const code = document.createElement('code');
+              el.appendChild(code);
+              await typewriteText(code, skills[i], speed);
+              if (i < skills.length - 1) el.appendChild(document.createTextNode(' '));
+              await new Promise(r => setTimeout(r, skillDelay));
+            }
+            resolve();
+          });
+        }
+
+        (async function() {
+          // On mobile, skip all typewriting for title and show image instantly
+          const isMobile = window.matchMedia('(max-width: 600px)').matches;
+          if (!isMobile && titleEl && window.getComputedStyle(titleEl.parentElement).display !== 'none') {
+            await typewriteText(titleEl, project.title, 20);
+          } else if (titleEl) {
+            titleEl.textContent = project.title;
+          }
+          imgLink.style.display = '';
+          imgLink.style.opacity = '1';
+          await typewriteDescLines(descEl, project.desc, 10, 120);
+          await typewriteSkills(skillsEl, project.skills, 16, 40);
+        })();
       }
 
       boxes.forEach((box, i) => {
         box.addEventListener('click', function(e) {
-          // Prevent link click
-          if (e.target.classList && e.target.classList.contains('project-modal-link')) return;
+          if (e.target.classList && e.target.classList.contains('project-detail-link')) return;
           if (e.target.tagName === 'A') return;
           if (isMobile()) {
             renderBoxInfo(box, projectData[i]);
@@ -200,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Prevent modal from popping out again when clicking the project title link in the modal
       document.addEventListener('click', function(e) {
-        if (e.target.classList && e.target.classList.contains('project-modal-link')) {
+        if (e.target.classList && e.target.classList.contains('project-detail-link')) {
           e.stopPropagation();
         }
       }, true);
@@ -215,24 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
-});
-// Mobile: trigger Nguyen Trinh box/tooltip animation on click
-document.addEventListener('DOMContentLoaded', function() {
-  function isMobile() {
-    return window.matchMedia('(max-width: 768px)').matches;
-  }
-  var h1 = document.querySelector('h1:first-of-type');
-  if (h1) {
-    var ems = h1.querySelectorAll('em');
-    if (ems.length > 1) {
-      var em2 = ems[1];
-      if (isMobile()) {
-        em2.addEventListener('click', function() {
-          em2.classList.add('active');
-        });
-      }
-    }
-  }
 });
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
@@ -312,30 +372,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetSection = document.querySelector(this.getAttribute('href'));
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const section = document.querySelector(href);
+                if (section) {
+                    const sectionRect = section.getBoundingClientRect();
+                    let scrollY;
+                    // If section is taller than viewport, scroll to top
+                    if (sectionRect.height > window.innerHeight) {
+                        scrollY = window.scrollY + sectionRect.top;
+                    } else {
+                        // Otherwise, center it, but ensure it doesn't crop the top
+                        scrollY = window.scrollY + sectionRect.top - (window.innerHeight / 2) + (sectionRect.height / 2);
+                        // If centering would scroll above the document, clamp to 0
+                        if (scrollY < 0) scrollY = 0;
+                    }
+                    window.scrollTo({ top: scrollY, behavior: 'smooth' });
+                }
             }
         });
     });
     
     const nameElement = document.querySelector('h1:first-of-type em:nth-of-type(2)');
-    
-    if (nameElement) {
+    if (nameElement && !isMobileTooltip()) {
         nameElement.addEventListener('mousemove', function(e) {
             document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
             document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
         });
     }
 
-    // Mouse tracking for tooltip
-    document.addEventListener('mousemove', function(e) {
-        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
-        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
-    });
+    // Mouse tracking for tooltip (desktop only)
+    function isMobileTooltip() {
+      return window.matchMedia('(max-width: 600px)').matches;
+    }
+    if (!isMobileTooltip()) {
+      document.addEventListener('mousemove', function(e) {
+          document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+          document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+      });
+    }
 
     // Initialize everything
     updateTooltipContent();
