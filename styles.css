@@ -202,7 +202,7 @@ em {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .project-box:hover {
   background-color: #f2f2f2;
@@ -303,7 +303,7 @@ em {
   object-fit: cover;
 }
 .project-detail-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: left;
     width: 100%;
 }
@@ -313,7 +313,7 @@ em {
 }
 
 .project-detail-desc {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 150%;
   margin-bottom: 2rem;
   text-align: left;
@@ -334,7 +334,7 @@ em {
   gap: 0.3rem;
 }
 .project-detail-skills code {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   background: var(--highlight-color);
   padding: 0.13rem 0.4rem;
   font-family: var(--code-font-family);
@@ -345,7 +345,8 @@ em {
         justify-content: center;
     }
     .project-detail-skills code {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
+        margin-bottom: 0;
     }
 }
 
