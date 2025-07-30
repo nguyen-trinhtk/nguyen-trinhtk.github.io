@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Fade in on scroll for .float-fade-in elements
   const floatEls = document.querySelectorAll('.float-fade-in');
   floatEls.forEach(el => {
     el.style.opacity = 0;
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     el.style.animationDelay = '';
   });
 
-  // About section: staggered fade-in
   const aboutSection = document.getElementById('about');
   if (aboutSection) {
     const aboutEls = aboutSection.querySelectorAll('.float-fade-in');
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Other .float-fade-in elements (not in #about): fade in individually
   const aboutElsSet = new Set(aboutSection ? aboutSection.querySelectorAll('.float-fade-in') : []);
   floatEls.forEach(el => {
     if (!aboutElsSet.has(el)) {
@@ -45,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Modal logic
   const modalRoot = document.getElementById('project-detail-root');
 
   function closeModal() {
@@ -73,11 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     `;
     document.body.classList.add('modal-open');
-    // Close logic
     modalRoot.querySelector('.project-detail-close').onclick = closeModal;
     modalRoot.querySelector('.project-detail-overlay').onclick = closeModal;
 
-    // Typewriting effect logic
     const card = modalRoot.querySelector('.project-detail-card');
     const titleEl = card.querySelector('.typewrite-title');
     const imgLink = card.querySelector('.project-detail-img-link');
@@ -132,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Sequence: title -> image -> desc (line by line) -> skills
     (async function() {
       await typewriteText(titleEl, project.title, 16);
       imgLink.style.display = '';
@@ -142,11 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
   }
 
-  // Fetch project data from info.json and attach modal/expand events
   fetch('info.json')
     .then(res => res.json())
     .then(projectData => {
-      // Set project-box innerHTML to title + emoji
       document.querySelectorAll('.project-box.float-fade-in').forEach((box, i) => {
         const idx = box.getAttribute('data-project-idx');
         if (idx !== null && projectData[idx]) {
@@ -154,8 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-
-      // Preload all project images
       projectData.forEach(project => {
         if (project.image) {
           const img = new window.Image();
@@ -167,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const boxes = document.querySelectorAll('.project-box');
       let expandedBox = null;
 
-      // Desktop-only: add tooltip and mouse tracking for project boxes
       if (!isMobile()) {
         boxes.forEach(box => {
           box.setAttribute('data-tooltip', 'Click for details');
@@ -179,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       function renderBoxInfo(box, project) {
-        // Remove any existing expanded info
         boxes.forEach(b => {
           if (b !== box) {
             const info = b.querySelector('.project-box-info');
@@ -195,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
           expandedBox = null;
           return;
         }
-        // Expand
         box.classList.add('expanded');
         expandedBox = box;
         const infoDiv = document.createElement('div');
@@ -215,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         box.appendChild(infoDiv);
 
-        // Typewriting effect logic
         const titleEl = infoDiv.querySelector('.typewrite-title');
         const imgLink = infoDiv.querySelector('.project-detail-img-link');
         const img = imgLink.querySelector('img');
@@ -270,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         (async function() {
-          // On mobile, skip all typewriting for title and show image instantly
           const isMobile = window.matchMedia('(max-width: 600px)').matches;
           if (!isMobile && titleEl && window.getComputedStyle(titleEl.parentElement).display !== 'none') {
             await typewriteText(titleEl, project.title, 20);
@@ -296,14 +280,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
-      // Prevent modal from popping out again when clicking the project title link in the modal
       document.addEventListener('click', function(e) {
         if (e.target.classList && e.target.classList.contains('project-detail-link')) {
           e.stopPropagation();
         }
       }, true);
 
-      // Collapse expanded box on resize to desktop
       window.addEventListener('resize', () => {
         if (!isMobile() && expandedBox) {
           expandedBox.classList.remove('expanded');
@@ -317,21 +299,18 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.navbar a');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
     
     function updateTooltipContent() {
         const now = new Date();
         const est = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
         const hour = est.getHours();
-        const day = est.getDay(); // 0 = Sunday, 6 = Saturday
+        const day = est.getDay();
         
         let content = 'hibernating';
         
         if (day === 0 || day === 6) {
-            // Weekend
             content = 'chilling out';
         } else {
-            // Weekday
             if (hour >= 9 && hour < 17) {
                 content = 'working hard';
             } else {
@@ -375,21 +354,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initial calls
     updateTooltipContent();
     updateScrollIndicator();
     updateActiveNav();
     
-    // Update tooltip content every minute
     setInterval(updateTooltipContent, 60000);
     
-    // Update on scroll
     window.addEventListener('scroll', function() {
         updateScrollIndicator();
         updateActiveNav();
     });
     
-    // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -399,13 +374,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (section) {
                     const sectionRect = section.getBoundingClientRect();
                     let scrollY;
-                    // If section is taller than viewport, scroll to top
                     if (sectionRect.height > window.innerHeight) {
                         scrollY = window.scrollY + sectionRect.top;
                     } else {
-                        // Otherwise, center it, but ensure it doesn't crop the top
                         scrollY = window.scrollY + sectionRect.top - (window.innerHeight / 2) + (sectionRect.height / 2);
-                        // If centering would scroll above the document, clamp to 0
                         if (scrollY < 0) scrollY = 0;
                     }
                     window.scrollTo({ top: scrollY, behavior: 'smooth' });
@@ -422,7 +394,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mouse tracking for tooltip (desktop only)
     function isMobileTooltip() {
       return window.matchMedia('(max-width: 600px)').matches;
     }
@@ -433,15 +404,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Initialize everything
     updateTooltipContent();
     updateScrollIndicator();
     updateActiveNav();
-    
-    // Update every minute
     setInterval(updateTooltipContent, 60000);
     
-    // Update on scroll
     window.addEventListener('scroll', () => {
         updateScrollIndicator();
         updateActiveNav();
