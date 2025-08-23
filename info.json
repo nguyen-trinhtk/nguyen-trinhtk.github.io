@@ -4,15 +4,15 @@
     "emoji": "📊",
     "github": "https://github.com/nguyen-trinhtk/wiedemann-analyzer",
     "image": "/assets/solver.png",
-    "desc": "A command-line interface (CLI) tool that solves and analyzes large, sparse linear systems via Wiedemann's algorithm in LINBOX template library.",
-    "skills": ["#c++", "#make", "#bash", "#docker"]
+    "desc": "I built a linear system solver & analyzer with NTL (C++) based on Wiemann's Monte Carlo algorithm as a supporting tool for my STAR '25 research.",
+    "skills": ["#c++", "#make", "#bash", "#matplotlib"]
   },
   {
     "title": "The Triangle's Website",
     "emoji": "📰",
     "github": "https://github.com/DrexelTriangle/Scalene",
     "image": "https://placehold.co/400x300?text=The-Triangle",
-    "desc": "A modern, responsive news platform for The Triangle (a student-run publishing organization), with custom-built comment system and admin panel.",
+    "desc": "I built the UI template for article pages that is reused across 1000+ articles. I also build a custom comment section & handle comment data storage & management.",
     "skills": ["#react", "#astro", "#mysql"]
   },
   {
@@ -20,15 +20,15 @@
     "emoji": "🤖",
     "github": "https://github.com/nguyen-trinhtk/PII-robot",
     "image": "/assets/robot.png",
-    "desc": "A trash-collecting robot capable of autonomous navigation, trash identification, obstacle avoidance. A project for the research internship at Fulbright University Vietnam.",
-    "skills": ["#opencv", "#yolo", "#ros", "#ubuntu"]
+    "desc": "A trash-collecting robot I developed in my internship at Fulbright University Vietnam. I worked on navigation, image processing (object detection), and low-level electrical.",
+    "skills": ["#opencv", "#yolo", "#ros", "#ubuntu", "arduino"]
   },
   {
     "title": "Pill Reminder",
     "emoji": "💊",
     "github": "https://github.com/nguyen-trinhtk/pill-reminder",
     "image": "/assets/pillreminder.png",
-    "desc": "An integrated hardware-software prescription management system featuring a Flutter-based mobile app and an ESP32-powered smart dispenser.",
+    "desc": "My team's project for DragonHacks. We worked on a medication system comprised of a Flutter UI, a Flask backend, a MongoDB database, and a ESP-32 driven pill dispenser.",
     "skills": ["#flutter", "ocr", "#flask", "mongodb", "#aws", "#esp32"]
   },
   {
@@ -44,7 +44,7 @@
     "emoji": "🥘",
     "github": "https://github.com/nguyen-trinhtk/drexel-diet-app",
     "image": "/assets/dining.png",
-    "desc": "A cross-platform Flutter app that helps Drexel students plan meals and meet dietary goals using live data from campus dining halls.",
+    "desc": "This is a group project for CI-10X course: a cross-platform Flutter app that helps Drexel students plan meals and meet dietary goals using live data from campus dining halls.",
     "skills": ["#flutter", "#firebase", "#firestore", "#vultr"]
   },
   {
