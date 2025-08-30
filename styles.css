@@ -9,6 +9,7 @@
   --code-font-weight: 300;
   --background-color: #FFFBF2;
   --highlight-color: #F2D9D9;
+  --link-color: #5683c3;
   --accent-color: #c64848;
   --text-color: #555;
   --scroll-width: 0%;
@@ -42,6 +43,7 @@ a {
 }
 a:hover {
   cursor: pointer;
+  font-weight: bolder;
 }
 
 /* Responsive Margins */
@@ -686,4 +688,26 @@ h1:first-of-type em:nth-of-type(2):hover::after {
 .seal-link sup {
   color: inherit;
   /* transition: color 0.2s; */
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.7rem;
+}
+
+.skills-container > code {
+  font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .skills-container {
+      justify-content: space-between;
+    }
+    .skills-container > code {
+      margin-bottom: 0rem;
+      
+    }
 }

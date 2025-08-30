@@ -1,6 +1,14 @@
-[
+{"project" : [
   {
-    "title": "CLI Wiedemann Analyzer",
+    "title": "(new project coming)",
+    "emoji": "🚧",
+    "github": "https://github.com/nguyen-trinhtk/",
+    "image": "/assets/pal.png",
+    "desc": "A computer vision project is on the way...what can it be? Wait for it!",
+    "skills": ["#pending", "#give me a moment"]
+  },
+  {
+    "title": "Wiedemann Analyzer",
     "emoji": "📊",
     "github": "https://github.com/nguyen-trinhtk/wiedemann-analyzer",
     "image": "/assets/solver.png",
@@ -12,32 +20,16 @@
     "emoji": "📰",
     "github": "https://github.com/DrexelTriangle/Scalene",
     "image": "https://placehold.co/400x300?text=The-Triangle",
-    "desc": "I built the UI template for article pages that is reused across 1000+ articles. I also build a custom comment section & handle comment data storage & management.",
-    "skills": ["#react", "#astro", "#mysql"]
-  },
-  {
-    "title": "Trash-Collecting Robot",
-    "emoji": "🤖",
-    "github": "https://github.com/nguyen-trinhtk/PII-robot",
-    "image": "/assets/robot.png",
-    "desc": "A trash-collecting robot I developed in my internship at Fulbright University Vietnam. I worked on navigation, image processing (object detection), and low-level electrical.",
-    "skills": ["#opencv", "#yolo", "#ros", "#ubuntu", "arduino"]
+    "desc": "I built the UI template for article pages reused across 1000+ articles. I also build a custom comment section & handle comment data storage & management.",
+    "skills": ["#react", "#tailwindcss", "#astro", "#mysql"]
   },
   {
     "title": "Pill Reminder",
     "emoji": "💊",
     "github": "https://github.com/nguyen-trinhtk/pill-reminder",
     "image": "/assets/pillreminder.png",
-    "desc": "My team's project for DragonHacks. We worked on a medication system comprised of a Flutter UI, a Flask backend, a MongoDB database, and a ESP-32 driven pill dispenser.",
-    "skills": ["#flutter", "ocr", "#flask", "mongodb", "#aws", "#esp32"]
-  },
-  {
-    "title": "NeoPal",
-    "emoji": "🔎",
-    "github": "https://github.com/nguyen-trinhtk/NeoPAL",
-    "image": "/assets/pal.png",
-    "desc": "An iOS app that leverages AR and CoreML to correct colors for colorblind users in real time with FastAPI backend for personalized accessibility threshold.",
-    "skills": ["#swift", "#coreml", "#fastapi", "#ar"]
+    "desc": "I enhanced my team's DragonHacks project. We worked on a medication system comprised of a Flutter UI, a Flask backend, a MongoDB database, and a ESP-32 driven pill dispenser.",
+    "skills": ["#flutter", "#ocr", "#flask", "mongodb", "#aws", "#esp32"]
   },
   {
     "title": "Drexel Diet App",
@@ -45,7 +37,15 @@
     "github": "https://github.com/nguyen-trinhtk/drexel-diet-app",
     "image": "/assets/dining.png",
     "desc": "This is a group project for CI-10X course: a cross-platform Flutter app that helps Drexel students plan meals and meet dietary goals using live data from campus dining halls.",
-    "skills": ["#flutter", "#firebase", "#firestore", "#vultr"]
+    "skills": ["#flutter", "#firebase", "#firestore"]
+  },
+  {
+    "title": "Trash-Collecting Robot",
+    "emoji": "🤖",
+    "github": "https://github.com/nguyen-trinhtk/PII-robot",
+    "image": "/assets/robot.png",
+    "desc": "A trash-collecting robot I developed in my internship at Fulbright University Vietnam. I worked on navigation, image processing (object detection), and low-level electrical.",
+    "skills": ["#opencv", "#yolo", "#ros", "#ubuntu", "#arduino"]
   },
   {
     "title": "Virtual Monkey FSM",
@@ -71,4 +71,8 @@
     "desc": "A Discord bot that supports studying tasking, time tracking, music playback, and staying focused. Another passion project for me and my friends.",
     "skills": ["#python", "#discord-api", "#spotify-api"]
   }
-]
+],
+"skills" :  [
+  "Python", "C", "C++", "Dart", "Java", "JavaScript", "Swift", "SQL", "TensorFlow", "scikit-learn", "Flask", "React", "Flutter", "Node.js", "MongoDB", "MySQL", "FireBase",
+  "Git", "Docker", "AWS", "ROS", "Arduino"
+]}

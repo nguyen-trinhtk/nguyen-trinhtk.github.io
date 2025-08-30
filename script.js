@@ -137,13 +137,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   fetch('info.json')
     .then(res => res.json())
-    .then(projectData => {
+    .then(data => {
+      const projectData = data.project;
+      const skillsData = data.skills;
       document.querySelectorAll('.project-box.float-fade-in').forEach((box, i) => {
         const idx = box.getAttribute('data-project-idx');
         if (idx !== null && projectData[idx]) {
           box.innerHTML = projectData[idx].title + '   ' + projectData[idx].emoji;
         }
       });
+
+      // Display skills in .skills-container
+      const skillsContainer = document.querySelector('.skills-container');
+      if (skillsContainer && Array.isArray(skillsData)) {
+        skillsContainer.innerHTML = '';
+        skillsData.forEach(skill => {
+          const codeEl = document.createElement('code');
+          codeEl.textContent = skill;
+          skillsContainer.appendChild(codeEl);
+        });
+      }
 
       projectData.forEach(project => {
         if (project.image) {
