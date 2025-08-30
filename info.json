@@ -19,7 +19,7 @@
     "title": "The Triangle's Website",
     "emoji": "📰",
     "github": "https://github.com/DrexelTriangle/Scalene",
-    "image": "https://placehold.co/400x300?text=The-Triangle",
+    "image": "/assets/triangle.png",
     "desc": "I built the UI template for article pages reused across 1000+ articles. I also build a custom comment section & handle comment data storage & management.",
     "skills": ["#react", "#tailwindcss", "#astro", "#mysql"]
   },
