@@ -1,43 +1,43 @@
 {"project" : [
   {
-    "title": "(new project coming)",
-    "emoji": "🚧",
-    "github": "https://github.com/nguyen-trinhtk/",
-    "image": "/assets/pal.png",
-    "desc": "A computer vision project is on the way...what can it be? Wait for it!",
-    "skills": ["#pending", "#give me a moment"]
+      "title": "Traffic Flow Optimizer",
+      "emoji": "🚦",
+      "github": "https://github.com/nguyen-trinhtk/traffic-flow-optimizer",
+      "image": "/assets/discord.png",
+      "desc": "I’m building a real-time traffic monitoring and optimization system with YOLOv8 detection, DeepSORT tracking, and graph-based LP optimization.",
+      "skills": ["#yolov8", "#deepsort", "#scikit-learn", "#opencv", "#python"]
   },
   {
     "title": "Wiedemann Analyzer",
     "emoji": "📊",
     "github": "https://github.com/nguyen-trinhtk/wiedemann-analyzer",
     "image": "/assets/solver.png",
-    "desc": "I built a linear system solver & analyzer with NTL (C++) based on Wiemann's Monte Carlo algorithm as a supporting tool for my STAR '25 research.",
-    "skills": ["#c++", "#make", "#bash", "#matplotlib"]
+    "desc": "(ASYM Lab Research) I built a linear system C++ solver (LinBox) & Python analyzer to analyze multiple Monte Carlo algorithms for solving large, sparse linear systems efficiently.",
+    "skills": ["#c++", "python", "#matplotlib", "linear-algebra"]
   },
   {
-    "title": "The Triangle's Website",
-    "emoji": "📰",
-    "github": "https://github.com/DrexelTriangle/Scalene",
-    "image": "/assets/triangle.png",
-    "desc": "I built the UI template for article pages reused across 1000+ articles. I also build a custom comment section & handle comment data storage & management.",
-    "skills": ["#react", "#tailwindcss", "#astro", "#mysql"]
+      "title": "The Triangle",
+      "emoji": "📰",
+      "github": "https://github.com/nguyen-trinhtk/triangle-data-migration",
+      "image": "/assets/triangle.png",
+      "desc": "(IT Team) We automated data migration from WordPress to MariaDB by automating ETL (+ fixing inconsistent data) and conversion into MySQL commands.",
+      "skills": ["#python", "#sql", "#mariadb", "#etl"]
   },
   {
     "title": "Pill Reminder",
     "emoji": "💊",
     "github": "https://github.com/nguyen-trinhtk/pill-reminder",
     "image": "/assets/pillreminder.png",
-    "desc": "I enhanced my team's DragonHacks project. We worked on a medication system comprised of a Flutter UI, a Flask backend, a MongoDB database, and a ESP-32 driven pill dispenser.",
-    "skills": ["#flutter", "#ocr", "#flask", "mongodb", "#aws", "#esp32"]
+    "desc": "(DragonHacks project) We worked on a medication system comprised of a Flutter UI, a Flask + Render backend, a MongoDB database, and a Arduino-driven pill dispenser.",
+    "skills": ["#flutter", "#ocr", "#flask", "mongodb", "#arduino"]
   },
   {
     "title": "Drexel Diet App",
     "emoji": "🥘",
     "github": "https://github.com/nguyen-trinhtk/drexel-diet-app",
     "image": "/assets/dining.png",
-    "desc": "This is a group project for CI-10X course: a cross-platform Flutter app that helps Drexel students plan meals and meet dietary goals using live data from campus dining halls.",
-    "skills": ["#flutter", "#firebase", "#firestore"]
+    "desc": "(Course project for CI-10X) We made a cross-platform Flutter app that helps Drexel students plan meals and meet dietary goals using live data from campus dining halls.",
+    "skills": ["#flutter", "#firebase", "#firestore", "#agile"]
   },
   {
     "title": "Trash-Collecting Robot",
