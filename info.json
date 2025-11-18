@@ -10,7 +10,7 @@
   {
     "title": "Wiedemann Analyzer",
     "emoji": "📊",
-    "github": "https://github.com/nguyen-trinhtk/wiedemann-analyzer",
+    "github": "https://github.com/nguyen-trinhtk/blackbox-linalg",
     "image": "/assets/solver.png",
     "desc": "(ASYM Lab Research) I built a linear system C++ solver (LinBox) & Python analyzer to analyze multiple Monte Carlo algorithms for solving large, sparse linear systems efficiently.",
     "skills": ["#c++", "python", "#matplotlib", "linear-algebra"]
@@ -20,7 +20,7 @@
       "emoji": "📰",
       "github": "https://github.com/nguyen-trinhtk/triangle-data-migration",
       "image": "/assets/triangle.png",
-      "desc": "(IT Team) We automated data migration from WordPress to MariaDB by automating ETL (+ fixing inconsistent data) and conversion into MySQL commands.",
+      "desc": "(IT Team) We automated data migration from WordPress to MySQL by automating ETL (+ fixing inconsistent data) and conversion into SQL commands.",
       "skills": ["#python", "#sql", "#mariadb", "#etl"]
   },
   {
